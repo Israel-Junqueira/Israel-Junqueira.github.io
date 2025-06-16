@@ -1,0 +1,126 @@
+import { Code2, Database, Server, Layers, Terminal, Globe, GitBranch, Wrench ,Container,Cloudy,Building,Network,Check } from "lucide-react"
+import type { Skill } from "@/types/skills"
+
+export const skillsData: Skill[] = [
+  {
+    title: "Visual Studio",
+    description: "IDE principal para desenvolvimento .NET e depuração de aplicações",
+    level: "avancado",
+    icon: <Wrench className="h-10 w-10 text-primary" />,
+    category: "Ferramentas",
+  },
+  {
+    title: "Git",
+    description: "Controle de versão e colaboração em projetos de desenvolvimento",
+    level: "avancado",
+    icon: <GitBranch className="h-10 w-10 text-primary" />,
+    category: "Ferramentas",
+  },
+  {
+    title: ".NET Core",
+    description: "Desenvolvimento de aplicações robustas e escaláveis utilizando o framework .NET Core",
+    level: "avancado",
+    icon: <Code2 className="h-10 w-10 text-primary" />,
+    category: "Backend",
+  },
+  {
+    title: "C#",
+    description: "Linguagem principal para desenvolvimento backend e desktop",
+    level: "avancado",
+    icon: <Terminal className="h-10 w-10 text-primary" />,
+    category: "Linguagens",
+  },
+  {
+    title: "Oracle PL/SQL",
+    description: "Criação e manutenção de procedures, triggers e queries otimizadas para sistemas financeiros. Experiência em integração com APIs, regras de negócio complexas e manipulação de grandes volumes de dados com foco em performance e segurança.",
+    level: "avancado",
+    icon: <Database className="h-10 w-10 text-primary" />,
+    category: "ORM",
+  },
+  {
+    title: "APIs RESTful e SOA",
+    description: "Desenvolvimento e manutenção de APIs RESTful seguindo boas práticas de design e segurança. Experiência com integração de serviços legados via arquitetura orientada a serviços (SOA), com foco em escalabilidade e clareza nas regras de negócio.",
+    level: "avancado",
+    icon: <Network className="h-10 w-10 text-primary" />,
+    category: "Backend",
+  },
+  {
+    title: "Entity Framework",
+    description: "Mapeamento objeto-relacional para acesso eficiente a bancos de dados",
+    level: "intermediario",
+    icon: <Database className="h-10 w-10 text-primary" />,
+    category: "ORM",
+  },
+  {
+    title: "SQL Server",
+    description: "Modelagem e otimização de bancos de dados relacionais",
+    level: "intermediario",
+    icon: <Database className="h-10 w-10 text-primary" />,
+    category: "Banco de Dados",
+  },
+  {
+    title: "MySQL",
+    description: "Desenvolvimento e administração de bancos de dados MySQL",
+    level: "intermediario",
+    icon: <Database className="h-10 w-10 text-primary" />,
+    category: "Banco de Dados",
+  },
+  
+  
+  {
+    title: "JavaScript",
+    description: "Desenvolvimento frontend e scripts para aplicações web",
+    level: "intermediario",
+    icon: <Terminal className="h-10 w-10 text-primary" />,
+    category: "Linguagens",
+  },
+  {
+    title: "HTML/CSS",
+    description: "Estruturação e estilização de páginas web responsivas",
+    level: "intermediario",
+    icon: <Globe className="h-10 w-10 text-primary" />,
+    category: "Frontend",
+  },
+  {
+    title: "Arquitetura de Software (Clean, DDD, Hexagonal)",
+    description: "Aplicação prática de padrões como Clean Architecture, Domain-Driven Design (DDD) e Arquitetura Hexagonal, promovendo separação de responsabilidades, modularidade e escalabilidade.",
+    level: "intermediario",
+    icon: <Building className="h-10 w-10 text-primary" />,
+    category: "Frontend",
+  },
+  {
+    title: "Testes Automatizados",
+    description: "Implantação de testes unitários e de interface usando XUnit, Moq, garantindo qualidade e segurança na entrega.",
+    level: "iniciante",
+    icon: <Check className="h-10 w-10 text-primary" />,
+    category: "Qualidade",
+  },
+  {
+    title: "Signal.R",
+    description: "Implementação de comunicação em tempo real para aplicações web interativas",
+    level: "iniciante",
+    icon: <Layers className="h-10 w-10 text-primary" />,
+    category: "Real-time",
+  },
+  {
+    title: "Identity Framework",
+    description: "Gerenciamento de autenticação e autorização em aplicações .NET",
+    level: "iniciante",
+    icon: <Server className="h-10 w-10 text-primary" />,
+    category: "Autenticação",
+  },
+  {
+    title: "Docker",
+    description: "Em fase de estudo e aplicação prática. Utilizo containers para testes locais e ambientação de APIs, buscando entender conceitos como isolamento, imagens e orquestração básica.",
+    level: "iniciante",
+    icon: <Container className="h-10 w-10 text-primary" />,
+    category: "DevOps",
+  },
+  {
+    title: "AWS",
+    description: "Em processo de aprendizado prático. Realizei um projeto pessoal de testes com ECS, S3 e SQS para entender conceitos de deploy, armazenamento e filas assíncronas na nuvem.",
+    level: "iniciante",
+    icon: <Cloudy className="h-10 w-10 text-primary" />,
+    category: "Cloud",
+  },
+]
