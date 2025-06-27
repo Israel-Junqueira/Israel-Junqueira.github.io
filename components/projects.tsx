@@ -23,6 +23,15 @@ export function Projects() {
       github: "https://github.com/Israel-Junqueira/EF_entregaRapida",
       type: "Projeto de TCC - Ensino Técnico",
     },
+    {
+    title: "DevLearning - Plataforma Educacional",
+    description: "Site acadêmico desenvolvido com HTML5, CSS3 e JavaScript puro. Plataforma de tutoriais com funcionalidades interativas, formulários validados e design responsivo.",
+    image: "/placeholder.svg?height=200&width=400",
+    tags: ["HTML5", "CSS3", "JavaScript", "jQuery", "Responsive Design"],
+    github: "https://github.com/Israel-Junqueira/Israel-Junqueira.github.io/tree/main/devlearning",
+    demo: "/devlearning", // Link para o site
+    type: "Projeto Acadêmico - Desenvolvimento Web",
+   },
   ]
 
   return (

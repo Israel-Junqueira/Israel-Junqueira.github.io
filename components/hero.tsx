@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowDown, FileText } from "lucide-react"
+import { ArrowDown, FileText,GraduationCap } from "lucide-react"
 import Link from "next/link"
 
 export function Hero() {
@@ -21,6 +21,12 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Link href="#projetos">
             <Button size="lg">Ver Projetos</Button>
+          </Link>
+          <Link href="/knowleadge/index.html" target="_blank">
+            <Button variant="outline" size="lg">
+              <GraduationCap className="mr-2 h-5 w-5" />
+              Area do Conhecimento
+            </Button>
           </Link>
           <Link href="/curriculo">
             <Button variant="outline" size="lg">
