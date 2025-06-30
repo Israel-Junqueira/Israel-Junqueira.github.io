@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore conhecimentos em Banco de Dados - PL/SQL Oracle, SQL Server, MongoDB e mais">
+    <meta name="keywords" content="database, plsql, oracle, sql server, mongodb, banco de dados">
+    <title>Banco de Dados - Knowledge Arsenal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="category-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Knowledge Arsenal</h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                    <a href="contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-hero">
+            <div class="category-header">
+                <div class="category-icon-large">🗄️</div>
+                <h1 class="category-title">Banco de Dados</h1>
+                <p class="category-description">
+                    Domine bancos de dados relacionais e NoSQL com PL/SQL Oracle, SQL Server, MongoDB e mais
+                </p>
+                <div class="category-stats">
+                    <span class="stat-badge">35 Artigos</span>
+                    <span class="stat-badge">6 Tecnologias</span>
+                    <span class="stat-badge">3 Níveis</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-content">
+            <div class="category-layout">
+                <aside class="category-sidebar">
+                    <div class="sidebar-card">
+                        <h3>🔧 Tecnologias</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item active" data-tech="">
+                                <div class="tech-info">
+                                    <span class="tech-icon">📋</span>
+                                    <span class="tech-name">Todos</span>
+                                </div>
+                                <span class="tech-count">35</span>
+                            </div>
+                            <div class="tech-item" data-tech="oracle">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🔴</span>
+                                    <span class="tech-name">Oracle PL/SQL</span>
+                                </div>
+                                <span class="tech-count" id="oracle-count">15</span>
+                            </div>
+                            <div class="tech-item" data-tech="sqlserver">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🔵</span>
+                                    <span class="tech-name">SQL Server</span>
+                                </div>
+                                <span class="tech-count" id="sqlserver-count">10</span>
+                            </div>
+                            <div class="tech-item" data-tech="mongodb">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🟢</span>
+                                    <span class="tech-name">MongoDB</span>
+                                </div>
+                                <span class="tech-count" id="mongodb-count">6</span>
+                            </div>
+                            <div class="tech-item" data-tech="mysql">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🐬</span>
+                                    <span class="tech-name">MySQL</span>
+                                </div>
+                                <span class="tech-count" id="mysql-count">4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>📊 Níveis</h3>
+                        <div class="level-filters">
+                            <button class="level-btn active" data-level="all">Todos os Níveis</button>
+                            <button class="level-btn" data-level="beginner">🟢 Iniciante</button>
+                            <button class="level-btn" data-level="intermediate">🟡 Intermediário</button>
+                            <button class="level-btn" data-level="advanced">🔴 Avançado</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="category-main">
+                    <section class="content-section">
+                        <h2>📚 Artigos e Tutoriais</h2>
+                        <div class="articles-grid">
+                            <article class="article-card" data-tech="oracle" data-level="advanced" data-date="2024-12-23T10:00:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Oracle PL/SQL</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>PL/SQL Avançado Oracle</h3>
+                                <p>Rotinas complexas e otimização de consultas em Oracle Database com procedures, functions, packages e triggers avançados.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">25 min</span>
+                                    <span class="article-date">Há 8 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="sqlserver" data-level="intermediate" data-date="2024-12-18T14:30:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">SQL Server</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Índices e Performance no SQL Server</h3>
+                                <p>Estratégias de indexação, análise de planos de execução e otimização de consultas para melhorar performance.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">18 min</span>
+                                    <span class="article-date">Há 13 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="mongodb" data-level="beginner" data-date="2024-12-12T09:15:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">MongoDB</span>
+                                    <span class="article-level beginner">Iniciante</span>
+                                </div>
+                                <h3>Introdução ao MongoDB</h3>
+                                <p>Conceitos básicos de bancos NoSQL, instalação do MongoDB e operações CRUD fundamentais com documentos.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">12 min</span>
+                                    <span class="article-date">Há 19 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="oracle" data-level="intermediate" data-date="2024-12-08T16:45:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Oracle PL/SQL</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Cursores e Tratamento de Exceções</h3>
+                                <p>Uso eficiente de cursores implícitos e explícitos, tratamento de exceções personalizadas em PL/SQL Oracle.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">20 min</span>
+                                    <span class="article-date">Há 23 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="sqlserver" data-level="advanced" data-date="2024-12-03T11:20:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">SQL Server</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Replicação e Alta Disponibilidade</h3>
+                                <p>Configuração de replicação, Always On Availability Groups e estratégias de backup e recovery no SQL Server.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">30 min</span>
+                                    <span class="article-date">Há 28 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="mongodb" data-level="intermediate" data-date="2024-11-28T13:10:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">MongoDB</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Aggregation Pipeline no MongoDB</h3>
+                                <p>Domine o pipeline de agregação do MongoDB para análises complexas de dados com match, group, project e lookup.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">22 min</span>
+                                    <span class="article-date">Há 1 mês</span>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="content-section">
+                        <h2>💻 Exemplos de Código</h2>
+                        <div class="examples-grid">
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>Procedure PL/SQL com Cursor</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>CREATE OR REPLACE PROCEDURE process_employees(
+    p_department_id IN NUMBER,
+    p_salary_increase IN NUMBER
+) IS
+    CURSOR emp_cursor IS
+        SELECT employee_id, first_name, last_name, salary
+        FROM employees
+        WHERE department_id = p_department_id
+        FOR UPDATE;
+    
+    v_new_salary NUMBER;
+    v_total_processed NUMBER := 0;
+BEGIN
+    FOR emp_rec IN emp_cursor LOOP
+        v_new_salary := emp_rec.salary * (1 + p_salary_increase / 100);
+        
+        UPDATE employees
+        SET salary = v_new_salary,
+            last_update_date = SYSDATE
+        WHERE CURRENT OF emp_cursor;
+        
+        v_total_processed := v_total_processed + 1;
+        
+        DBMS_OUTPUT.PUT_LINE('Funcionário: ' || emp_rec.first_name || 
+                           ' ' || emp_rec.last_name || 
+                           ' - Novo salário: ' || v_new_salary);
+    END LOOP;
+    
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Total de funcionários processados: ' || v_total_processed);
+    
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Erro: ' || SQLERRM);
+        RAISE;
+END process_employees;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>Aggregation Pipeline MongoDB</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>// Análise de vendas por categoria e região
+db.sales.aggregate([
+    // Filtrar vendas dos últimos 6 meses
+    {
+        $match: {
+            date: {
+                $gte: new Date(new Date().setMonth(new Date().getMonth() - 6))
+            },
+            status: "completed"
+        }
+    },
+    
+    // Fazer lookup com produtos para obter categoria
+    {
+        $lookup: {
+            from: "products",
+            localField: "productId",
+            foreignField: "_id",
+            as: "product"
+        }
+    },
+    
+    // Desestruturar array de produtos
+    {
+        $unwind: "$product"
+    },
+    
+    // Agrupar por categoria e região
+    {
+        $group: {
+            _id: {
+                category: "$product.category",
+                region: "$region"
+            },
+            totalSales: { $sum: "$amount" },
+            totalQuantity: { $sum: "$quantity" },
+            averageOrderValue: { $avg: "$amount" },
+            salesCount: { $sum: 1 }
+        }
+    },
+    
+    // Ordenar por total de vendas
+    {
+        $sort: { totalSales: -1 }
+    },
+    
+    // Projetar campos finais
+    {
+        $project: {
+            _id: 0,
+            category: "$_id.category",
+            region: "$_id.region",
+            totalSales: { $round: ["$totalSales", 2] },
+            totalQuantity: 1,
+            averageOrderValue: { $round: ["$averageOrderValue", 2] },
+            salesCount: 1
+        }
+    }
+]);</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Knowledge Arsenal</h3>
+                    <p>Construindo conhecimento, um aprendizado por vez.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>📧 contato@knowledgearsenal.com</p>
+                    <p>🌐 github.com/seuusuario</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Knowledge Arsenal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/category-standard.js"></script>
+</body>
+</html>

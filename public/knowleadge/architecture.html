@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arsenal de conhecimentos em Arquitetura de Software - Clean Architecture, DDD, SOLID e mais">
+    <meta name="keywords" content="arquitetura, clean architecture, ddd, solid, microserviços">
+    <title>Arquitetura - Knowledge Arsenal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="category-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><a href="index.html" style="text-decoration: none; color: inherit;">Knowledge Arsenal</a></h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                    <a href="contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-hero">
+            <div class="container">
+                <div class="category-header">
+                    <div class="category-icon-large">🏗️</div>
+                    <h1 class="category-title">Arquitetura de Software</h1>
+                    <p class="category-description">Padrões arquiteturais, princípios SOLID e transição para microserviços</p>
+                    <div class="category-stats">
+                        <span class="stat-badge">22 Artigos</span>
+                        <span class="stat-badge">6 Projetos</span>
+                        <span class="stat-badge">5 Padrões</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-content">
+            <div class="category-layout">
+                <aside class="category-sidebar">
+                    <div class="sidebar-card">
+                        <h3>🎯 Padrões</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item active" data-tech="">
+                                <div class="tech-info">
+                                    <span class="tech-icon">📋</span>
+                                    <span class="tech-name">Todos</span>
+                                </div>
+                                <span class="tech-count">22</span>
+                            </div>
+                            <div class="tech-item" data-tech="clean">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🧹</span>
+                                    <span class="tech-name">Clean Architecture</span>
+                                </div>
+                                <span class="tech-count">8</span>
+                            </div>
+                            <div class="tech-item" data-tech="ddd">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🎯</span>
+                                    <span class="tech-name">DDD</span>
+                                </div>
+                                <span class="tech-count">6</span>
+                            </div>
+                            <div class="tech-item" data-tech="solid">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🔧</span>
+                                    <span class="tech-name">SOLID</span>
+                                </div>
+                                <span class="tech-count">5</span>
+                            </div>
+                            <div class="tech-item" data-tech="microservices">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🔗</span>
+                                    <span class="tech-name">Microserviços</span>
+                                </div>
+                                <span class="tech-count">3</span>
+                            </div>
+                            <div class="tech-item" data-tech="cqrs">
+                                <div class="tech-info">
+                                    <span class="tech-icon">⚡</span>
+                                    <span class="tech-name">CQRS</span>
+                                </div>
+                                <span class="tech-count">4</span>
+                            </div>
+                            <div class="tech-item" data-tech="event-sourcing">
+                                <div class="tech-info">
+                                    <span class="tech-icon">📝</span>
+                                    <span class="tech-name">Event Sourcing</span>
+                                </div>
+                                <span class="tech-count">2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>📊 Níveis</h3>
+                        <div class="level-filters">
+                            <button class="level-btn active" data-level="all">Todos os Níveis</button>
+                            <button class="level-btn" data-level="beginner">🟢 Iniciante</button>
+                            <button class="level-btn" data-level="intermediate">🟡 Intermediário</button>
+                            <button class="level-btn" data-level="advanced">🔴 Avançado</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="category-main">
+                    <div class="content-section">
+                        <h2>📚 Artigos e Tutoriais</h2>
+                        
+                        <div class="articles-grid">
+                            <article class="article-card" data-tech="clean" data-level="intermediate">
+                                <div class="article-header">
+                                    <span class="article-tech">Clean Architecture</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Clean Architecture na Prática</h3>
+                                <p>Implementação completa de Clean Architecture em .NET Core com separação de camadas e inversão de dependência.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">30 min</span>
+                                    <span class="article-date">Hoje</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="solid" data-level="beginner">
+                                <div class="article-header">
+                                    <span class="article-tech">SOLID</span>
+                                    <span class="article-level beginner">Iniciante</span>
+                                </div>
+                                <h3>Princípios SOLID Explicados</h3>
+                                <p>Entenda os 5 princípios SOLID com exemplos práticos em C# para escrever código mais limpo e manutenível.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">20 min</span>
+                                    <span class="article-date">Há 2 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="ddd" data-level="advanced">
+                                <div class="article-header">
+                                    <span class="article-tech">DDD</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Domain Driven Design Avançado</h3>
+                                <p>Implementação de agregados, entidades, objetos de valor e repositórios seguindo os padrões do DDD.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">35 min</span>
+                                    <span class="article-date">Há 1 semana</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="microservices" data-level="advanced">
+                                <div class="article-header">
+                                    <span class="article-tech">Microserviços</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Transição Monolito para Microserviços</h3>
+                                <p>Estratégias e padrões para migrar aplicações monolíticas para arquitetura de microserviços.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">40 min</span>
+                                    <span class="article-date">Há 3 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="solid" data-level="intermediate">
+                                <div class="article-header">
+                                    <span class="article-tech">SOLID</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Dependency Injection na Prática</h3>
+                                <p>Implementação de injeção de dependência em .NET Core seguindo o princípio da inversão de dependência.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">25 min</span>
+                                    <span class="article-date">Há 5 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="cqrs" data-level="advanced">
+                                <div class="article-header">
+                                    <span class="article-tech">CQRS</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>CQRS e Event Sourcing</h3>
+                                <p>Implementação de Command Query Responsibility Segregation e Event Sourcing em Clean Architecture.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">45 min</span>
+                                    <span class="article-date">Há 1 semana</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>💻 Exemplos de Código</h2>
+                        <div class="examples-grid">
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>Clean Architecture - Estrutura de Pastas</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>src/
+├── Domain/
+│   ├── Entities/
+│   ├── ValueObjects/
+│   ├── Interfaces/
+│   └── Services/
+├── Application/
+│   ├── UseCases/
+│   ├── DTOs/
+│   └── Interfaces/
+├── Infrastructure/
+│   ├── Data/
+│   ├── Repositories/
+│   └── Services/
+└── Presentation/
+    ├── Controllers/
+    ├── ViewModels/
+    └── Views/</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>SOLID - Single Responsibility Principle</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>// ❌ Violando SRP
+public class User
+{
+    public string Name { get; set; }
+    public string Email { get; set; }
+    
+    public void Save() { /* salva no banco */ }
+    public void SendEmail() { /* envia email */ }
+    public void ValidateEmail() { /* valida email */ }
+}
+
+// ✅ Seguindo SRP
+public class User
+{
+    public string Name { get; set; }
+    public string Email { get; set; }
+}
+
+public class UserRepository
+{
+    public void Save(User user) { /* salva no banco */ }
+}
+
+public class EmailService
+{
+    public void SendEmail(string email) { /* envia email */ }
+}
+
+public class EmailValidator
+{
+    public bool IsValid(string email) { /* valida email */ }
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>DDD - Aggregate Root</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>public class Order : AggregateRoot
+{
+    private readonly List&lt;OrderItem&gt; _items = new();
+    
+    public OrderId Id { get; private set; }
+    public CustomerId CustomerId { get; private set; }
+    public OrderStatus Status { get; private set; }
+    public IReadOnlyList&lt;OrderItem&gt; Items =&gt; _items.AsReadOnly();
+    
+    public void AddItem(ProductId productId, int quantity, Money price)
+    {
+        if (Status != OrderStatus.Draft)
+            throw new InvalidOperationException("Cannot add items to confirmed order");
+            
+        var item = new OrderItem(productId, quantity, price);
+        _items.Add(item);
+        
+        AddDomainEvent(new ItemAddedToOrderEvent(Id, item));
+    }
+    
+    public void Confirm()
+    {
+        if (!_items.Any())
+            throw new InvalidOperationException("Cannot confirm empty order");
+            
+        Status = OrderStatus.Confirmed;
+        AddDomainEvent(new OrderConfirmedEvent(Id));
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Knowledge Arsenal</h3>
+                    <p>Construindo conhecimento, um aprendizado por vez.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="frontend.html">Frontend</a></li>
+                        <li><a href="backend.html">Backend</a></li>
+                        <li><a href="database.html">Banco de Dados</a></li>
+                        <li><a href="devops.html">DevOps & Cloud</a></li>
+                        <li><a href="mobile.html">Mobile</a></li>
+                        <li><a href="architecture.html">Arquitetura</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                      <p>📧 israelribeiro313@gmail.com</p>
+                    <p>🌐 https://github.com/Israel-Junqueira</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Knowledge Arsenal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/knowledge.js"></script>
+    <script src="js/category-standard.js"></script>
+
+    <script>
+        // Função para copiar código
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling.querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copiado!';
+                button.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    button.textContent = 'Copiar';
+                    button.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+            });
+        }
+    </script>
+
+    <style>
+/* Remove apenas a animação bounce, mantém o visual */
+.category-icon-large {
+    animation: none !important;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.477);
+    border-radius: 50%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.category-icon-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.1);
+}
+</style>
+</body>
+</html>

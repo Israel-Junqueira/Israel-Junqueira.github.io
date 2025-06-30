@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arsenal de conhecimentos em [CATEGORIA] - [DESCRIÇÃO_CATEGORIA]">
+    <meta name="keywords" content="[KEYWORDS_CATEGORIA]">
+    <title>[CATEGORIA] - Knowledge Arsenal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><a href="index.html" style="text-decoration: none; color: inherit;">Knowledge Arsenal</a></h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                    <a href="contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-hero">
+            <div class="container">
+                <div class="category-header">
+                    <div class="category-icon-large">[EMOJI_ICON]</div>
+                    <h1 class="category-title">[CATEGORIA]</h1>
+                    <p class="category-description">[DESCRIÇÃO_DETALHADA]</p>
+                    <div class="category-stats">
+                        <span class="stat-badge">[NUM] Artigos</span>
+                        <span class="stat-badge">[NUM] Projetos</span>
+                        <span class="stat-badge">[NUM] Tecnologias</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-content">
+            <div class="container">
+                <div class="category-layout">
+                    <aside class="category-sidebar">
+                        <div class="sidebar-card">
+                            <h3>🛠️ Tecnologias</h3>
+                            <div class="tech-grid">
+                                <div class="tech-item active" data-tech="[TECH_ID_1]">
+                                    <div class="tech-info">
+                                        <span class="tech-icon">[TECH_EMOJI_1]</span>
+                                        <span class="tech-name">[TECH_NAME_1]</span>
+                                    </div>
+                                    <span class="tech-count">[COUNT_1]</span>
+                                </div>
+                                <div class="tech-item" data-tech="[TECH_ID_2]">
+                                    <div class="tech-info">
+                                        <span class="tech-icon">[TECH_EMOJI_2]</span>
+                                        <span class="tech-name">[TECH_NAME_2]</span>
+                                    </div>
+                                    <span class="tech-count">[COUNT_2]</span>
+                                </div>
+                                <div class="tech-item" data-tech="[TECH_ID_3]">
+                                    <div class="tech-info">
+                                        <span class="tech-icon">[TECH_EMOJI_3]</span>
+                                        <span class="tech-name">[TECH_NAME_3]</span>
+                                    </div>
+                                    <span class="tech-count">[COUNT_3]</span>
+                                </div>
+                                <!-- Adicione mais tecnologias conforme necessário -->
+                            </div>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h3>📊 Níveis</h3>
+                            <div class="level-filters">
+                                <button class="level-btn active" data-level="all">Todos</button>
+                                <button class="level-btn" data-level="beginner">Iniciante</button>
+                                <button class="level-btn" data-level="intermediate">Intermediário</button>
+                                <button class="level-btn" data-level="advanced">Avançado</button>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <main class="category-main">
+                        <div class="content-section">
+                            <h2>📚 Artigos e Tutoriais</h2>
+                            
+                            <div class="articles-grid">
+                                <!-- EXEMPLO DE ARTIGO - COPIE E MODIFIQUE -->
+                                <article class="article-card" data-tech="[TECH_ID]" data-level="[LEVEL]">
+                                    <div class="article-header">
+                                        <span class="article-tech">[TECH_NAME]</span>
+                                        <span class="article-level [LEVEL]">[LEVEL_DISPLAY]</span>
+                                    </div>
+                                    <h3>[TÍTULO_DO_ARTIGO]</h3>
+                                    <p>[DESCRIÇÃO_DO_ARTIGO]</p>
+                                    <div class="article-meta">
+                                        <span class="read-time">[TEMPO] min</span>
+                                        <span class="article-date">[DATA_RELATIVA]</span>
+                                    </div>
+                                </article>
+
+                                <!-- Adicione mais artigos aqui -->
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h2>💻 Exemplos de Código</h2>
+                            <div class="examples-grid">
+                                <!-- EXEMPLO DE CÓDIGO - COPIE E MODIFIQUE -->
+                                <div class="example-card">
+                                    <div class="example-header">
+                                        <h3>[TÍTULO_DO_EXEMPLO]</h3>
+                                    </div>
+                                    <div class="example-content">
+                                        <button class="copy-btn">Copiar</button>
+                                        <pre><code>[SEU_CÓDIGO_AQUI]</code></pre>
+                                    </div>
+                                </div>
+
+                                <!-- Adicione mais exemplos aqui -->
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Knowledge Arsenal</h3>
+                    <p>Construindo conhecimento, um aprendizado por vez.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="frontend.html">Frontend</a></li>
+                        <li><a href="backend.html">Backend</a></li>
+                        <li><a href="database.html">Banco de Dados</a></li>
+                        <li><a href="devops.html">DevOps & Cloud</a></li>
+                        <li><a href="mobile.html">Mobile</a></li>
+                        <li><a href="architecture.html">Arquitetura</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>📧 contato@knowledgearsenal.com</p>
+                    <p>🌐 github.com/seuusuario</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Knowledge Arsenal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/knowledge.js"></script>
+    <script src="js/category.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore conhecimentos em Frontend - HTML5, CSS3, JavaScript, React e mais">
+    <meta name="keywords" content="frontend, html5, css3, javascript, react, vue, desenvolvimento web">
+    <title>Frontend - Knowledge Arsenal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="category-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Knowledge Arsenal</h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                    <a href="contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-hero">
+            <div class="category-header">
+                <div class="category-header">
+                        <div class="category-icon-large">🎨</div>
+                <h1 class="category-title">Frontend Development</h1>
+                <p class="category-description">
+                    Explore o mundo do desenvolvimento frontend com HTML5, CSS3, JavaScript e frameworks modernos
+                </p>
+                <div class="category-stats">
+                    <span class="stat-badge">65 Artigos</span>
+                    <span class="stat-badge">12 Tecnologias</span>
+                    <span class="stat-badge">3 Níveis</span>
+                </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="category-content">
+            <div class="category-layout">
+                <aside class="category-sidebar">
+                    <div class="sidebar-card">
+                        <h3>🔧 Tecnologias</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item active" data-tech="">
+                                <div class="tech-info">
+                                    <span class="tech-icon">📋</span>
+                                    <span class="tech-name">Todos</span>
+                                </div>
+                                <span class="tech-count">65</span>
+                            </div>
+                            <div class="tech-item" data-tech="html5">
+                                <div class="tech-info">
+                                    <span class="tech-icon">📄</span>
+                                    <span class="tech-name">HTML5</span>
+                                </div>
+                                <span class="tech-count" id="html5-count">15</span>
+                            </div>
+                            <div class="tech-item" data-tech="css3">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🎨</span>
+                                    <span class="tech-name">CSS3</span>
+                                </div>
+                                <span class="tech-count" id="css3-count">18</span>
+                            </div>
+                            <div class="tech-item" data-tech="javascript">
+                                <div class="tech-info">
+                                    <span class="tech-icon">⚡</span>
+                                    <span class="tech-name">JavaScript</span>
+                                </div>
+                                <span class="tech-count" id="javascript-count">20</span>
+                            </div>
+                            <div class="tech-item" data-tech="react">
+                                <div class="tech-info">
+                                    <span class="tech-icon">⚛️</span>
+                                    <span class="tech-name">React</span>
+                                </div>
+                                <span class="tech-count" id="react-count">8</span>
+                            </div>
+                            <div class="tech-item" data-tech="vue">
+                                <div class="tech-info">
+                                    <span class="tech-icon">💚</span>
+                                    <span class="tech-name">Vue.js</span>
+                                </div>
+                                <span class="tech-count" id="vue-count">4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>📊 Níveis</h3>
+                        <div class="level-filters">
+                            <button class="level-btn active" data-level="all">Todos os Níveis</button>
+                            <button class="level-btn" data-level="beginner">🟢 Iniciante</button>
+                            <button class="level-btn" data-level="intermediate">🟡 Intermediário</button>
+                            <button class="level-btn" data-level="advanced">🔴 Avançado</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="category-main">
+                    <section class="content-section">
+                        <h2>📚 Artigos e Tutoriais</h2>
+                        <div class="articles-grid">
+                            <article class="article-card" data-tech="html5" data-level="beginner" data-date="2024-12-25T10:00:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">HTML5</span>
+                                    <span class="article-level beginner">Iniciante</span>
+                                </div>
+                                <h3>Estrutura Semântica HTML5</h3>
+                                <p>Aprenda a usar elementos semânticos como header, nav, main, section e footer para criar estruturas HTML mais significativas e acessíveis.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">5 min</span>
+                                    <span class="article-date">Há 6 meses</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="css3" data-level="intermediate" data-date="2024-12-20T14:30:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">CSS3</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>CSS Grid Layout Avançado</h3>
+                                <p>Técnicas avançadas para criar layouts complexos e responsivos usando CSS Grid, incluindo áreas nomeadas e funções repeat().</p>
+                                <div class="article-meta">
+                                    <span class="read-time">12 min</span>
+                                    <span class="article-date">Há 11 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="javascript" data-level="intermediate" data-date="2024-12-15T09:15:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">JavaScript</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Async/Await e Promises</h3>
+                                <p>Domine programação assíncrona em JavaScript com promises, async/await e tratamento de erros para criar aplicações mais eficientes.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">15 min</span>
+                                    <span class="article-date">Há 16 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="react" data-level="advanced" data-date="2024-12-10T16:45:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">React</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Context API e State Management</h3>
+                                <p>Implementação avançada de gerenciamento de estado em React usando Context API, useReducer e padrões de otimização.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">20 min</span>
+                                    <span class="article-date">Há 21 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="css3" data-level="beginner" data-date="2024-12-05T11:20:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">CSS3</span>
+                                    <span class="article-level beginner">Iniciante</span>
+                                </div>
+                                <h3>Flexbox: Guia Completo</h3>
+                                <p>Aprenda todos os conceitos do Flexbox CSS para criar layouts flexíveis e responsivos de forma simples e eficiente.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">8 min</span>
+                                    <span class="article-date">Há 26 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="vue" data-level="intermediate" data-date="2024-11-30T13:10:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Vue.js</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Composition API no Vue 3</h3>
+                                <p>Explore a nova Composition API do Vue 3 para criar componentes mais organizados e reutilizáveis com melhor tipagem.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">18 min</span>
+                                    <span class="read-date">Há 1 mês</span>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="content-section">
+                        <h2>💻 Exemplos de Código</h2>
+                        <div class="examples-grid">
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>Componente React com Hooks</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await fetch(`/api/users/${userId}`);
+        const userData = await response.json();
+        setUser(userData);
+      } catch (error) {
+        console.error('Erro ao buscar usuário:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchUser();
+  }, [userId]);
+
+  if (loading) return <div>Carregando...</div>;
+  if (!user) return <div>Usuário não encontrado</div>;
+
+  return (
+    <div className="user-profile">
+      <h2>{user.name}</h2>
+      <p>{user.email}</p>
+    </div>
+  );
+}
+
+export default UserProfile;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>CSS Grid Layout Responsivo</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 2rem;
+}
+
+.grid-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Knowledge Arsenal</h3>
+                    <p>Construindo conhecimento, um aprendizado por vez.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>📧 israelribeiro313@gmail.com</p>
+                    <p>🌐 https://github.com/Israel-Junqueira</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Knowledge Arsenal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/category-standard.js"></script>
+</body>
+</html>

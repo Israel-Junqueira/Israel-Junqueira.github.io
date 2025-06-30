@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore conhecimentos em DevOps & Cloud - Docker, Azure DevOps, AWS, CI/CD e mais">
+    <meta name="keywords" content="devops, docker, azure, aws, cicd, kubernetes, cloud">
+    <title>DevOps & Cloud - Knowledge Arsenal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="category-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Knowledge Arsenal</h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                    <a href="contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-hero">
+            <div class="category-header">
+                <div class="category-icon-large">☁️</div>
+                <h1 class="category-title">DevOps & Cloud</h1>
+                <p class="category-description">
+                    Domine DevOps e computação em nuvem com Docker, Azure DevOps, AWS, CI/CD e Kubernetes
+                </p>
+                <div class="category-stats">
+                    <span class="stat-badge">28 Artigos</span>
+                    <span class="stat-badge">7 Tecnologias</span>
+                    <span class="stat-badge">3 Níveis</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-content">
+            <div class="category-layout">
+                <aside class="category-sidebar">
+                    <div class="sidebar-card">
+                        <h3>🔧 Tecnologias</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item active" data-tech="">
+                                <div class="tech-info">
+                                    <span class="tech-icon">📋</span>
+                                    <span class="tech-name">Todos</span>
+                                </div>
+                                <span class="tech-count">28</span>
+                            </div>
+                            <div class="tech-item" data-tech="docker">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🐳</span>
+                                    <span class="tech-name">Docker</span>
+                                </div>
+                                <span class="tech-count" id="docker-count">8</span>
+                            </div>
+                            <div class="tech-item" data-tech="azure">
+                                <div class="tech-info">
+                                    <span class="tech-icon">☁️</span>
+                                    <span class="tech-name">Azure DevOps</span>
+                                </div>
+                                <span class="tech-count" id="azure-count">7</span>
+                            </div>
+                            <div class="tech-item" data-tech="kubernetes">
+                                <div class="tech-info">
+                                    <span class="tech-icon">⚙️</span>
+                                    <span class="tech-name">Kubernetes</span>
+                                </div>
+                                <span class="tech-count" id="kubernetes-count">5</span>
+                            </div>
+                            <div class="tech-item" data-tech="aws">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🟠</span>
+                                    <span class="tech-name">AWS</span>
+                                </div>
+                                <span class="tech-count" id="aws-count">4</span>
+                            </div>
+                            <div class="tech-item" data-tech="cicd">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🔄</span>
+                                    <span class="tech-name">CI/CD</span>
+                                </div>
+                                <span class="tech-count" id="cicd-count">4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>📊 Níveis</h3>
+                        <div class="level-filters">
+                            <button class="level-btn active" data-level="all">Todos os Níveis</button>
+                            <button class="level-btn" data-level="beginner">🟢 Iniciante</button>
+                            <button class="level-btn" data-level="intermediate">🟡 Intermediário</button>
+                            <button class="level-btn" data-level="advanced">🔴 Avançado</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="category-main">
+                    <section class="content-section">
+                        <h2>📚 Artigos e Tutoriais</h2>
+                        <div class="articles-grid">
+                            <article class="article-card" data-tech="docker" data-level="beginner" data-date="2024-12-26T10:00:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Docker</span>
+                                    <span class="article-level beginner">Iniciante</span>
+                                </div>
+                                <h3>Docker para Iniciantes</h3>
+                                <p>Aprenda os conceitos fundamentais do Docker: containers, imagens, Dockerfile e comandos básicos para containerização.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">15 min</span>
+                                    <span class="article-date">Há 5 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="azure" data-level="intermediate" data-date="2024-12-21T14:30:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Azure DevOps</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Pipelines CI/CD com Azure DevOps</h3>
+                                <p>Configuração completa de pipelines de integração e entrega contínua usando Azure DevOps para projetos .NET.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">22 min</span>
+                                    <span class="article-date">Há 10 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="kubernetes" data-level="advanced" data-date="2024-12-16T09:15:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Kubernetes</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Orquestração com Kubernetes</h3>
+                                <p>Deploy e gerenciamento de aplicações em clusters Kubernetes: pods, services, deployments e estratégias de scaling.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">28 min</span>
+                                    <span class="article-date">Há 15 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="aws" data-level="intermediate" data-date="2024-12-11T16:45:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">AWS</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Deploy na AWS com EC2 e RDS</h3>
+                                <p>Configuração de infraestrutura na AWS usando EC2 para aplicações e RDS para banco de dados com alta disponibilidade.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">25 min</span>
+                                    <span class="article-date">Há 20 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="cicd" data-level="intermediate" data-date="2024-12-06T11:20:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">CI/CD</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Estratégias de Deploy Automatizado</h3>
+                                <p>Blue-Green deployment, Canary releases e Rolling updates para deploy seguro e confiável de aplicações.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">20 min</span>
+                                    <span class="article-date">Há 25 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="docker" data-level="advanced" data-date="2024-12-01T13:10:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Docker</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Docker Compose e Multi-stage Builds</h3>
+                                <p>Otimização de imagens Docker com multi-stage builds e orquestração de serviços complexos com Docker Compose.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">18 min</span>
+                                    <span class="article-date">Há 30 dias</span>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="content-section">
+                        <h2>💻 Exemplos de Código</h2>
+                        <div class="examples-grid">
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>Dockerfile Multi-stage para .NET</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code># Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy csproj and restore dependencies
+COPY ["MyApp/MyApp.csproj", "MyApp/"]
+RUN dotnet restore "MyApp/MyApp.csproj"
+
+# Copy everything else and build
+COPY . .
+WORKDIR "/src/MyApp"
+RUN dotnet build "MyApp.csproj" -c Release -o /app/build
+
+# Publish stage
+FROM build AS publish
+RUN dotnet publish "MyApp.csproj" -c Release -o /app/publish
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup --system --gid 1001 appgroup
+RUN adduser --system --uid 1001 --gid 1001 appuser
+
+# Copy published app
+COPY --from=publish /app/publish .
+
+# Change ownership and switch to non-root user
+RUN chown -R appuser:appgroup /app
+USER appuser
+
+EXPOSE 8080
+ENTRYPOINT ["dotnet", "MyApp.dll"]</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>Pipeline Azure DevOps YAML</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>trigger:
+  branches:
+    include:
+      - main
+      - develop
+
+variables:
+  buildConfiguration: 'Release'
+  dockerRegistryServiceConnection: 'myDockerRegistry'
+  imageRepository: 'myapp'
+  containerRegistry: 'myregistry.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build and Test
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET 8 SDK'
+      inputs:
+        packageType: 'sdk'
+        version: '8.0.x'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore packages'
+      inputs:
+        command: 'restore'
+        projects: '**/*.csproj'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Build application'
+      inputs:
+        command: 'build'
+        projects: '**/*.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Run tests'
+      inputs:
+        command: 'test'
+        projects: '**/*Tests.csproj'
+        arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+    
+    - task: Docker@2
+      displayName: 'Build and push Docker image'
+      inputs:
+        command: 'buildAndPush'
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+          latest
+
+- stage: Deploy
+  displayName: Deploy to Production
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebAppContainer@1
+            displayName: 'Deploy to Azure Web App'
+            inputs:
+              azureSubscription: 'myAzureSubscription'
+              appName: 'myapp-prod'
+              containers: '$(containerRegistry)/$(imageRepository):$(tag)'</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Knowledge Arsenal</h3>
+                    <p>Construindo conhecimento, um aprendizado por vez.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>📧 contato@knowledgearsenal.com</p>
+                    <p>🌐 github.com/seuusuario</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Knowledge Arsenal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/category-standard.js"></script>
+</body>
+</html>

@@ -1,434 +1,498 @@
-/**
- * Knowledge Arsenal - Gerenciamento de Conhecimentos
- */
+// Knowledge-specific functionality
+document.addEventListener("DOMContentLoaded", () => {
+  // Projects Filter Functionality
+  const filterButtons = document.querySelectorAll(".filter-btn")
+  const projectCards = document.querySelectorAll(".project-card")
 
-// Base de dados dos conhecimentos
-const knowledgeData = [
-  {
-    id: "dotnet-core",
-    title: ".NET Core",
-    description: "Framework para desenvolvimento de aplicações multiplataforma. APIs, Web Apps e Microservices.",
-    category: "backend",
-    level: "advanced",
-    status: "mastered",
-    icon: "⚙️",
-    tags: ["C#", "API", "Web", "Microservices"],
-    lastUpdated: "2024-01-15",
-    githubRepo: "https://github.com/Israel-Junqueira/dotnet-examples",
-    documentation: "documentacoes.html#dotnet-core",
-  },
-  {
-    id: "csharp",
-    title: "C#",
-    description: "Linguagem de programação orientada a objetos. Sintaxe, conceitos avançados e boas práticas.",
-    category: "backend",
-    level: "advanced",
-    status: "mastered",
-    icon: "💻",
-    tags: ["OOP", "LINQ", "Async", "Generics"],
-    lastUpdated: "2024-01-10",
-    githubRepo: "https://github.com/Israel-Junqueira/csharp-studies",
-    documentation: "documentacoes.html#csharp",
-  },
-  {
-    id: "entity-framework",
-    title: "Entity Framework",
-    description: "ORM para .NET. Code First, Database First, migrações e otimizações de performance.",
-    category: "database",
-    level: "intermediate",
-    status: "mastered",
-    icon: "🗄️",
-    tags: ["ORM", "Code First", "Migrations", "LINQ"],
-    lastUpdated: "2024-01-08",
-    githubRepo: "https://github.com/Israel-Junqueira/ef-examples",
-    documentation: "documentacoes.html#entity-framework",
-  },
-  {
-    id: "sql-server",
-    title: "SQL Server",
-    description: "Sistema de gerenciamento de banco de dados. Queries, procedures, índices e otimização.",
-    category: "database",
-    level: "intermediate",
-    status: "mastered",
-    icon: "📊",
-    tags: ["T-SQL", "Procedures", "Indexes", "Performance"],
-    lastUpdated: "2024-01-12",
-    githubRepo: "https://github.com/Israel-Junqueira/sql-scripts",
-    documentation: "documentacoes.html#sql-server",
-  },
-  {
-    id: "docker",
-    title: "Docker",
-    description: "Containerização de aplicações. Dockerfile, Docker Compose e deploy em containers.",
-    category: "tools",
-    level: "beginner",
-    status: "learning",
-    icon: "🐳",
-    tags: ["Containers", "DevOps", "Deploy", "Microservices"],
-    lastUpdated: "2024-01-14",
-    githubRepo: "https://github.com/Israel-Junqueira/docker-studies",
-    documentation: "documentacoes.html#docker",
-  },
-  {
-    id: "javascript",
-    title: "JavaScript",
-    description: "Linguagem de programação para web. ES6+, DOM manipulation, async/await e APIs.",
-    category: "frontend",
-    level: "intermediate",
-    status: "mastered",
-    icon: "🟨",
-    tags: ["ES6", "DOM", "Async", "APIs"],
-    lastUpdated: "2024-01-05",
-    githubRepo: "https://github.com/Israel-Junqueira/js-projects",
-    documentation: "documentacoes.html#javascript",
-  },
-  {
-    id: "html-css",
-    title: "HTML & CSS",
-    description: "Estruturação e estilização web. Semantic HTML, Flexbox, Grid e responsividade.",
-    category: "frontend",
-    level: "intermediate",
-    status: "mastered",
-    icon: "🎨",
-    tags: ["Semantic", "Flexbox", "Grid", "Responsive"],
-    lastUpdated: "2024-01-03",
-    githubRepo: "https://github.com/Israel-Junqueira/frontend-projects",
-    documentation: "documentacoes.html#html-css",
-  },
-  {
-    id: "git",
-    title: "Git & GitHub",
-    description: "Controle de versão e colaboração. Branches, merge, rebase e workflows.",
-    category: "tools",
-    level: "intermediate",
-    status: "mastered",
-    icon: "🌿",
-    tags: ["Version Control", "Branches", "Collaboration", "Workflows"],
-    lastUpdated: "2024-01-01",
-    githubRepo: "https://github.com/Israel-Junqueira/git-workflows",
-    documentation: "documentacoes.html#git",
-  },
-]
+  if (filterButtons.length > 0 && projectCards.length > 0) {
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const filter = this.dataset.filter
 
-// Estado da aplicação
-let currentFilter = "all"
-let searchQuery = ""
-let filteredKnowledge = [...knowledgeData]
+        // Update active button
+        filterButtons.forEach((btn) => btn.classList.remove("active"))
+        this.classList.add("active")
 
-// Import jQuery
-const $ = require("jquery")
+        // Filter projects
+        projectCards.forEach((card) => {
+          const category = card.dataset.category
 
-// Import showNotification
-const showNotification = require("./showNotification")
+          if (filter === "all" || category === filter) {
+            card.classList.remove("hidden")
+            card.style.display = "block"
+          } else {
+            card.classList.add("hidden")
+            setTimeout(() => {
+              if (card.classList.contains("hidden")) {
+                card.style.display = "none"
+              }
+            }, 300)
+          }
+        })
 
-// Inicialização
-$(document).ready(() => {
-  initKnowledgeSection()
-  initSearch()
-  initFilters()
-  renderKnowledge()
+        // Show notification
+        const filterText = filter === "all" ? "todos os projetos" : `projetos de ${filter}`
+        window.KnowledgeArsenal.showNotification(`Mostrando ${filterText}`, "info", 2000)
+      })
+    })
+  }
 
-  console.log("📚 Knowledge Manager inicializado")
-})
+  // Skills Progress Animation
+  const skillBars = document.querySelectorAll(".skill-progress")
 
-// ===== INICIALIZAÇÃO =====
-function initKnowledgeSection() {
-  // Verificar se estamos na página que tem a seção de conhecimento
-  if ($("#knowledge-grid").length === 0) return
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const progressBar = entry.target
+          const width = progressBar.dataset.width
 
-  // Setup dos event listeners
-  setupKnowledgeEventListeners()
-}
+          setTimeout(() => {
+            progressBar.style.width = width
+          }, 200)
 
-function setupKnowledgeEventListeners() {
-  // Search input
-  $("#knowledge-search").on(
-    "input",
-    debounce(function () {
-      searchQuery = $(this).val().toLowerCase().trim()
-      filterAndRenderKnowledge()
-    }, 300),
+          skillObserver.unobserve(progressBar)
+        }
+      })
+    },
+    { threshold: 0.5 },
   )
 
-  // Filter tabs
-  $(".filter-tab").on("click", function () {
-    $(".filter-tab").removeClass("active")
-    $(this).addClass("active")
-    currentFilter = $(this).data("filter")
-    filterAndRenderKnowledge()
+  skillBars.forEach((bar) => {
+    skillObserver.observe(bar)
   })
 
-  // Knowledge card actions
-  $(document).on("click", ".knowledge-action", function (e) {
-    e.preventDefault()
-    const action = $(this).data("action")
-    const knowledgeId = $(this).data("knowledge-id")
-    handleKnowledgeAction(action, knowledgeId)
-  })
-}
+  // Contact Form Validation and Submission
+  const contactForm = document.getElementById("contactForm")
 
-// ===== BUSCA =====
-function initSearch() {
-  const searchBox = $(".search-box")
-  const searchInput = $("#knowledge-search")
-  const searchBtn = $(".search-btn")
+  if (contactForm) {
+    const formFields = {
+      name: document.getElementById("name"),
+      email: document.getElementById("email"),
+      subject: document.getElementById("subject"),
+      message: document.getElementById("message"),
+    }
 
-  // Focus effect
-  searchInput
-    .on("focus", () => {
-      searchBox.addClass("focused")
+    const errorElements = {
+      name: document.getElementById("nameError"),
+      email: document.getElementById("emailError"),
+      subject: document.getElementById("subjectError"),
+      message: document.getElementById("messageError"),
+    }
+
+    const submitBtn = document.getElementById("submitBtn")
+    const successMessage = document.getElementById("successMessage")
+
+    // Real-time validation
+    Object.keys(formFields).forEach((fieldName) => {
+      const field = formFields[fieldName]
+      const errorElement = errorElements[fieldName]
+
+      if (field && errorElement) {
+        field.addEventListener("blur", () => validateField(fieldName))
+        field.addEventListener("input", () => clearError(fieldName))
+      }
     })
-    .on("blur", () => {
-      searchBox.removeClass("focused")
-    })
 
-  // Search button click
-  searchBtn.on("click", () => {
-    searchInput.focus()
-  })
-}
+    function validateField(fieldName) {
+      const field = formFields[fieldName]
+      const errorElement = errorElements[fieldName]
+      let isValid = true
+      let errorMessage = ""
 
-// ===== FILTROS =====
-function initFilters() {
-  // Atualizar contadores dos filtros
-  updateFilterCounts()
-}
+      // Clear previous error
+      clearError(fieldName)
 
-function updateFilterCounts() {
-  $(".filter-tab").each(function () {
-    const filter = $(this).data("filter")
-    let count = knowledgeData.length
+      switch (fieldName) {
+        case "name":
+          if (!field.value.trim()) {
+            errorMessage = "Nome é obrigatório"
+            isValid = false
+          } else if (field.value.trim().length < 2) {
+            errorMessage = "Nome deve ter pelo menos 2 caracteres"
+            isValid = false
+          }
+          break
 
-    if (filter !== "all") {
-      if (filter === "learning") {
-        count = knowledgeData.filter((item) => item.status === "learning").length
+        case "email":
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          if (!field.value.trim()) {
+            errorMessage = "Email é obrigatório"
+            isValid = false
+          } else if (!emailRegex.test(field.value)) {
+            errorMessage = "Email inválido"
+            isValid = false
+          }
+          break
+
+        case "subject":
+          if (!field.value) {
+            errorMessage = "Selecione um assunto"
+            isValid = false
+          }
+          break
+
+        case "message":
+          if (!field.value.trim()) {
+            errorMessage = "Mensagem é obrigatória"
+            isValid = false
+          } else if (field.value.trim().length < 10) {
+            errorMessage = "Mensagem deve ter pelo menos 10 caracteres"
+            isValid = false
+          }
+          break
+      }
+
+      if (!isValid) {
+        showError(fieldName, errorMessage)
+        field.classList.add("error")
       } else {
-        count = knowledgeData.filter((item) => item.category === filter).length
+        field.classList.remove("error")
+        field.classList.add("valid")
+      }
+
+      return isValid
+    }
+
+    function showError(fieldName, message) {
+      const errorElement = errorElements[fieldName]
+      if (errorElement) {
+        errorElement.textContent = message
+        errorElement.style.display = "block"
       }
     }
 
-    const currentText = $(this).text().split(" (")[0]
-    $(this).text(`${currentText} (${count})`)
-  })
-}
+    function clearError(fieldName) {
+      const errorElement = errorElements[fieldName]
+      const field = formFields[fieldName]
 
-// ===== FILTRAR E RENDERIZAR =====
-function filterAndRenderKnowledge() {
-  filteredKnowledge = knowledgeData.filter((item) => {
-    // Filtro por categoria
-    let categoryMatch = true
-    if (currentFilter !== "all") {
-      if (currentFilter === "learning") {
-        categoryMatch = item.status === "learning"
-      } else {
-        categoryMatch = item.category === currentFilter
+      if (errorElement) {
+        errorElement.textContent = ""
+        errorElement.style.display = "none"
+      }
+
+      if (field) {
+        field.classList.remove("error")
       }
     }
 
-    // Filtro por busca
-    let searchMatch = true
-    if (searchQuery) {
-      searchMatch =
-        item.title.toLowerCase().includes(searchQuery) ||
-        item.description.toLowerCase().includes(searchQuery) ||
-        item.tags.some((tag) => tag.toLowerCase().includes(searchQuery))
+    function validateForm() {
+      let isFormValid = true
+
+      Object.keys(formFields).forEach((fieldName) => {
+        if (!validateField(fieldName)) {
+          isFormValid = false
+        }
+      })
+
+      return isFormValid
     }
 
-    return categoryMatch && searchMatch
-  })
+    // Form submission
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault()
 
-  renderKnowledge()
-}
+      if (!validateForm()) {
+        window.KnowledgeArsenal.showNotification("Por favor, corrija os erros no formulário", "error")
+        return
+      }
 
-// ===== RENDERIZAÇÃO =====
-function renderKnowledge() {
-  const grid = $("#knowledge-grid")
+      // Show loading state
+      submitBtn.classList.add("loading")
+      submitBtn.disabled = true
 
-  if (filteredKnowledge.length === 0) {
-    grid.html(renderEmptyState())
-    return
-  }
-
-  const knowledgeCards = filteredKnowledge.map((item, index) => renderKnowledgeCard(item, index)).join("")
-
-  grid.html(knowledgeCards)
-
-  // Animar cards
-  setTimeout(() => {
-    $(".knowledge-card").each(function (index) {
+      // Simulate form submission (replace with actual API call)
       setTimeout(() => {
-        $(this).addClass("animate-in")
-      }, index * 100)
-    })
-  }, 100)
-}
+        // Hide loading state
+        submitBtn.classList.remove("loading")
+        submitBtn.disabled = false
 
-function renderKnowledgeCard(item, index) {
-  const levelIcons = {
-    beginner: "🟢",
-    intermediate: "🟡",
-    advanced: "🔴",
-  }
+        // Show success message
+        contactForm.style.display = "none"
+        successMessage.style.display = "block"
 
-  const statusLabels = {
-    mastered: "Dominado",
-    learning: "Aprendendo",
-    reviewing: "Revisando",
-  }
+        // Show notification
+        window.KnowledgeArsenal.showNotification("Mensagem enviada com sucesso!", "success")
 
-  const statusColors = {
-    mastered: "success",
-    learning: "warning",
-    reviewing: "info",
-  }
+        // Reset form after delay
+        setTimeout(() => {
+          contactForm.reset()
+          contactForm.style.display = "block"
+          successMessage.style.display = "none"
 
-  return `
-        <div class="knowledge-card" data-knowledge-id="${item.id}" style="animation-delay: ${index * 100}ms">
-            <div class="knowledge-header">
-                <div class="knowledge-icon">${item.icon}</div>
-                <div class="knowledge-meta">
-                    <span class="knowledge-level" title="Nível: ${item.level}">${levelIcons[item.level]}</span>
-                    <span class="knowledge-status status-${statusColors[item.status]}">${statusLabels[item.status]}</span>
-                </div>
-            </div>
-            
-            <div class="knowledge-content">
-                <h3 class="knowledge-title">${item.title}</h3>
-                <p class="knowledge-description">${item.description}</p>
-                
-                <div class="knowledge-tags">
-                    ${item.tags.map((tag) => `<span class="knowledge-tag">${tag}</span>`).join("")}
-                </div>
-                
-                <div class="knowledge-info">
-                    <span class="knowledge-updated">📅 ${formatDate(item.lastUpdated)}</span>
-                    <span class="knowledge-category">${getCategoryIcon(item.category)} ${getCategoryLabel(item.category)}</span>
-                </div>
-            </div>
-            
-            <div class="knowledge-actions">
-                ${
-                  item.documentation
-                    ? `
-                    <a href="${item.documentation}" class="btn btn-primary knowledge-action" data-action="docs">
-                        📚 Documentação
-                    </a>
-                `
-                    : ""
-                }
-                
-                ${
-                  item.githubRepo
-                    ? `
-                    <a href="${item.githubRepo}" target="_blank" class="btn btn-outline knowledge-action" data-action="github">
-                        🐙 Repositório
-                    </a>
-                `
-                    : ""
-                }
-                
-                <button class="btn btn-outline knowledge-action" data-action="share" data-knowledge-id="${item.id}">
-                    📤 Compartilhar
-                </button>
-            </div>
-        </div>
-    `
-}
-
-function renderEmptyState() {
-  return `
-        <div class="empty-state">
-            <div class="empty-icon">🔍</div>
-            <h3>Nenhum conhecimento encontrado</h3>
-            <p>Tente ajustar seus filtros ou termos de busca.</p>
-            <button class="btn btn-primary" onclick="clearFilters()">
-                Limpar Filtros
-            </button>
-        </div>
-    `
-}
-
-// ===== AÇÕES =====
-function handleKnowledgeAction(action, knowledgeId) {
-  const item = knowledgeData.find((k) => k.id === knowledgeId)
-
-  switch (action) {
-    case "share":
-      shareKnowledge(item)
-      break
-    case "docs":
-    case "github":
-      // Links são tratados automaticamente
-      break
-  }
-}
-
-function shareKnowledge(item) {
-  if (navigator.share) {
-    navigator.share({
-      title: `Knowledge Arsenal - ${item.title}`,
-      text: item.description,
-      url: window.location.href,
-    })
-  } else {
-    // Fallback - copiar para clipboard
-    const url = `${window.location.origin}/knowledge/#${item.id}`
-    navigator.clipboard.writeText(url).then(() => {
-      showNotification("Link copiado para a área de transferência!", "success")
+          // Clear validation classes
+          Object.values(formFields).forEach((field) => {
+            if (field) {
+              field.classList.remove("error", "valid")
+            }
+          })
+        }, 3000)
+      }, 2000)
     })
   }
-}
 
-function clearFilters() {
-  currentFilter = "all"
-  searchQuery = ""
-  $("#knowledge-search").val("")
-  $(".filter-tab").removeClass("active")
-  $('.filter-tab[data-filter="all"]').addClass("active")
-  filterAndRenderKnowledge()
-}
+  // FAQ Accordion
+  const faqItems = document.querySelectorAll(".faq-item")
 
-// ===== UTILITÁRIOS =====
-function formatDate(dateString) {
-  const date = new Date(dateString)
-  return date.toLocaleDateString("pt-BR")
-}
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question")
 
-function getCategoryIcon(category) {
-  const icons = {
-    backend: "⚙️",
-    frontend: "🎨",
-    database: "🗄️",
-    tools: "🔧",
-    mobile: "📱",
-  }
-  return icons[category] || "💻"
-}
+    question.addEventListener("click", () => {
+      const isActive = item.classList.contains("active")
 
-function getCategoryLabel(category) {
-  const labels = {
-    backend: "Backend",
-    frontend: "Frontend",
-    database: "Database",
-    tools: "Ferramentas",
-    mobile: "Mobile",
-  }
-  return labels[category] || "Geral"
-}
+      // Close all other FAQ items
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.classList.remove("active")
+        }
+      })
 
-// Função debounce
-function debounce(func, wait) {
-  let timeout
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout)
-      func(...args)
+      // Toggle current item
+      item.classList.toggle("active", !isActive)
+    })
+  })
+
+  // Category Cards Interactive Effects
+  const categoryCards = document.querySelectorAll(".category-card")
+
+  categoryCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      const category = this.dataset.category
+
+      // Add click animation
+      this.style.transform = "scale(0.95)"
+      setTimeout(() => {
+        this.style.transform = ""
+      }, 150)
+
+      // Show notification with category info
+      const categoryNames = {
+        frontend: "Frontend Development",
+        backend: "Backend Development",
+        tools: "Ferramentas de Desenvolvimento",
+        design: "Design e UX/UI",
+      }
+
+      const categoryName = categoryNames[category] || "Categoria"
+      window.KnowledgeArsenal.showNotification(`Explorando ${categoryName}`, "info")
+
+      // Could redirect to a detailed category page
+      // window.location.href = `categoria.html?cat=${category}`;
+    })
+
+    // Add keyboard support
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        this.click()
+      }
+    })
+
+    // Make focusable
+    card.setAttribute("tabindex", "0")
+    card.setAttribute("role", "button")
+    card.setAttribute("aria-label", `Explorar categoria ${card.querySelector("h3").textContent}`)
+  })
+
+  // Project Cards Hover Effects
+  const projectLinksCards = document.querySelectorAll(".project-card")
+
+  projectLinksCards.forEach((card) => {
+    const projectLinks = card.querySelectorAll(".project-link")
+
+    projectLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault()
+
+        const linkText = this.textContent.toLowerCase()
+        let message = ""
+
+        if (linkText.includes("demo")) {
+          message = "Abrindo demonstração do projeto..."
+        } else if (linkText.includes("github")) {
+          message = "Redirecionando para o GitHub..."
+        }
+
+        window.KnowledgeArsenal.showNotification(message, "info")
+
+        // Simulate opening link after delay
+        setTimeout(() => {
+          // window.open(this.href, '_blank');
+          console.log(`Would open: ${this.href}`)
+        }, 1000)
+      })
+    })
+  })
+
+  // Timeline Animation
+  const timelineItems = document.querySelectorAll(".timeline-item, .journey-item")
+
+  const timelineObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = "1"
+            entry.target.style.transform = "translateY(0)"
+          }, index * 200)
+
+          timelineObserver.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.3 },
+  )
+
+  timelineItems.forEach((item) => {
+    item.style.opacity = "0"
+    item.style.transform = "translateY(30px)"
+    item.style.transition = "all 0.6s ease"
+    timelineObserver.observe(item)
+  })
+
+  // Search Functionality (for future implementation)
+  function initializeSearch() {
+    const searchInput = document.getElementById("searchInput")
+
+    if (searchInput) {
+      const debouncedSearch = window.KnowledgeArsenal.debounce((query) => {
+        performSearch(query)
+      }, 300)
+
+      searchInput.addEventListener("input", function () {
+        const query = this.value.trim()
+        if (query.length > 2) {
+          debouncedSearch(query)
+        }
+      })
     }
-    clearTimeout(timeout)
-    timeout = setTimeout(later, wait)
   }
+
+  function performSearch(query) {
+    // Implementation for search functionality
+    console.log(`Searching for: ${query}`)
+    window.KnowledgeArsenal.showNotification(`Buscando por "${query}"...`, "info", 1500)
+  }
+
+  // Initialize search if search input exists
+  initializeSearch()
+
+  // Dark Mode Toggle (for future implementation)
+  function initializeDarkMode() {
+    const darkModeToggle = document.getElementById("darkModeToggle")
+
+    if (darkModeToggle) {
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem("theme")
+      if (savedTheme) {
+        document.body.classList.toggle("dark-mode", savedTheme === "dark")
+      }
+
+      darkModeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode")
+        const isDark = document.body.classList.contains("dark-mode")
+
+        localStorage.setItem("theme", isDark ? "dark" : "light")
+        window.KnowledgeArsenal.showNotification(`Modo ${isDark ? "escuro" : "claro"} ativado`, "info", 1500)
+      })
+    }
+  }
+
+  // Initialize dark mode if toggle exists
+  initializeDarkMode()
+
+  // Performance monitoring
+  if ("performance" in window) {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const perfData = performance.getEntriesByType("navigation")[0]
+        const loadTime = perfData.loadEventEnd - perfData.loadEventStart
+
+        console.log(`Knowledge Arsenal loaded in ${loadTime}ms`)
+
+        if (loadTime > 3000) {
+          console.warn("Page load time is above optimal threshold")
+        }
+      }, 0)
+    })
+  }
+
+  console.log("Knowledge Arsenal specific features initialized! 📚")
+})
+
+// Export knowledge-specific utilities
+window.KnowledgeUtils = {
+  // Filter projects by technology
+  filterByTech: (tech) => {
+    const projectCards = document.querySelectorAll(".project-card")
+
+    projectCards.forEach((card) => {
+      const techTags = card.querySelectorAll(".tech-tag")
+      let hasMatch = false
+
+      techTags.forEach((tag) => {
+        if (tag.textContent.toLowerCase().includes(tech.toLowerCase())) {
+          hasMatch = true
+        }
+      })
+
+      card.style.display = hasMatch ? "block" : "none"
+    })
+  },
+
+  // Get project statistics
+  getProjectStats: () => {
+    const projects = document.querySelectorAll(".project-card")
+    const technologies = new Set()
+
+    projects.forEach((project) => {
+      const techTags = project.querySelectorAll(".tech-tag")
+      techTags.forEach((tag) => {
+        technologies.add(tag.textContent)
+      })
+    })
+
+    return {
+      totalProjects: projects.length,
+      uniqueTechnologies: technologies.size,
+      technologies: Array.from(technologies),
+    }
+  },
+
+  // Export knowledge data (for future backup feature)
+  exportData: function () {
+    const data = {
+      timestamp: new Date().toISOString(),
+      stats: this.getProjectStats(),
+      version: "1.0.0",
+    }
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/json",
+    })
+
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "knowledge-arsenal-data.json"
+    a.click()
+
+    URL.revokeObjectURL(url)
+    window.KnowledgeArsenal.showNotification("Dados exportados com sucesso!", "success")
+  },
 }
 
-// Expor funções globalmente
-window.clearFilters = clearFilters
-window.knowledgeData = knowledgeData
+// Declare KnowledgeArsenal variable
+window.KnowledgeArsenal = {
+  showNotification: (message, type, duration) => {
+    console.log(`Notification: ${message} (${type})`)
+  },
+  debounce: (func, wait) => {
+    let timeout
+    return function (...args) {
+      
+      clearTimeout(timeout)
+      timeout = setTimeout(() => func.apply(this, args), wait)
+    }
+  },
+}

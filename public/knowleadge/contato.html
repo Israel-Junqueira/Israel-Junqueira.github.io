@@ -3,601 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato para colaborações, dúvidas ou compartilhamento de conhecimento">
+    <meta name="keywords" content="contato, colaboração, networking, desenvolvedor">
     <title>Contato - Knowledge Arsenal</title>
-    <meta name="description" content="Entre em contato para colaborações, dúvidas ou networking profissional.">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📧</text></svg>">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/knowledge.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
+    <header class="header">
         <nav class="navbar">
-            <div class="container">
-                <div class="nav-brand">
-                    <a href="index.html" class="nav-logo">
-                        <span class="logo-icon">🧠</span>
-                        <span class="logo-text">Knowledge Arsenal</span>
-                    </a>
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Knowledge Arsenal</h2>
                 </div>
-                
-                <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">
-                            <i class="nav-icon">🏠</i>
-                            <span>Início</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="documentacoes.html" class="nav-link">
-                            <i class="nav-icon">📚</i>
-                            <span>Documentações</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="projetos.html" class="nav-link">
-                            <i class="nav-icon">🚀</i>
-                            <span>Projetos</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contato.html" class="nav-link active">
-                            <i class="nav-icon">📧</i>
-                            <span>Contato</span>
-                        </a>
-                    </li>
-                </ul>
-                
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                    <a href="contato.html" class="nav-link active">Contato</a>
+                </div>
                 <div class="nav-toggle" id="nav-toggle">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <div class="page-header-content">
-                <h1 class="page-title">📧 Contato</h1>
-                <p class="page-subtitle">
-                    Entre em contato para colaborações, dúvidas ou networking profissional
-                </p>
-                <div class="page-breadcrumb">
-                    <a href="index.html">Início</a>
-                    <span class="breadcrumb-separator">→</span>
-                    <span class="breadcrumb-current">Contato</span>
-                </div>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Entre em Contato</h1>
+                <p class="page-subtitle">Vamos conversar sobre tecnologia e trocar conhecimentos</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <h2 class="contact-title">Vamos conversar!</h2>
-                    <p class="contact-description">
-                        Estou sempre aberto a novas oportunidades, colaborações e 
-                        conversas sobre tecnologia. Entre em contato!
-                    </p>
-
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="method-icon">📧</div>
-                            <div class="method-content">
-                                <h3 class="method-title">E-mail</h3>
-                                <p class="method-description">Para contato profissional e colaborações</p>
-                                <a href="mailto:israelribeiro313@gmail.com" class="method-link">
-                                    israelribeiro313@gmail.com
-                                </a>
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Vamos nos conectar!</h2>
+                        <p>Estou sempre aberto a novas oportunidades, colaborações e discussões sobre tecnologia. Se você tem uma ideia interessante, precisa de ajuda com algum projeto ou simplesmente quer trocar conhecimentos, não hesite em entrar em contato!</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">📧</div>
+                                <div class="method-info">
+                                    <h4>Email</h4>
+                                    <p>israelribeiro313@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="method-icon">💼</div>
+                                <div class="method-info">
+                                    <h4>LinkedIn</h4>
+                                    <p>https://www.linkedin.com/in/israel-junqueira</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="method-icon">🐙</div>
+                                <div class="method-info">
+                                    <h4>GitHub</h4>
+                                    <p>https://github.com/Israel-Junqueira</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="contact-method">
-                            <div class="method-icon">📱</div>
-                            <div class="method-content">
-                                <h3 class="method-title">Telefone</h3>
-                                <p class="method-description">Para conversas diretas e networking</p>
-                                <a href="tel:+5514996983584" class="method-link">
-                                    (14) 99698-3584
-                                </a>
+                        <div class="availability">
+                            <h3>Disponibilidade</h3>
+                            <div class="availability-status">
+                                <div class="status-indicator available"></div>
+                                <span>Disponível para novos projetos</span>
                             </div>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="method-icon">💼</div>
-                            <div class="method-content">
-                                <h3 class="method-title">LinkedIn</h3>
-                                <p class="method-description">Networking profissional e atualizações</p>
-                                <a href="https://www.linkedin.com/in/israel-junqueira/" target="_blank" class="method-link">
-                                    linkedin.com/in/israel-junqueira
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="method-icon">🐙</div>
-                            <div class="method-content">
-                                <h3 class="method-title">GitHub</h3>
-                                <p class="method-description">Projetos, código e colaborações</p>
-                                <a href="https://github.com/Israel-Junqueira" target="_blank" class="method-link">
-                                    github.com/Israel-Junqueira
-                                </a>
-                            </div>
+                            <p>Tempo de resposta médio: 24 horas</p>
                         </div>
                     </div>
 
-                    <div class="availability">
-                        <h3 class="availability-title">Disponibilidade</h3>
-                        <div class="availability-status">
-                            <span class="status-indicator available"></span>
-                            <span class="status-text">Disponível para novas oportunidades</span>
-                        </div>
-                        <p class="availability-description">
-                            Atualmente buscando oportunidades como Desenvolvedor Backend Jr. 
-                            Interessado em projetos com .NET Core, C# e tecnologias Microsoft.
-                        </p>
-                    </div>
-                </div>
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm">
+                            <h3>Envie uma mensagem</h3>
+                            
+                            <div class="form-group">
+                                <label for="name">Nome *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="nameError"></span>
+                            </div>
 
-                <!-- Contact Form -->
-                <div class="contact-form-container">
-                    <div class="form-header">
-                        <h3 class="form-title">Envie uma mensagem</h3>
-                        <p class="form-description">
-                            Preencha o formulário abaixo e entrarei em contato em breve
-                        </p>
-                    </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
 
-                    <form class="contact-form" id="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nome *</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="colaboracao">Colaboração</option>
+                                    <option value="projeto">Projeto</option>
+                                    <option value="duvida">Dúvida Técnica</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                                <span class="error-message" id="subjectError"></span>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="email" class="form-label">E-mail *</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem *</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Conte-me mais sobre sua ideia ou dúvida..."></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="company" class="form-label">Empresa</label>
-                            <input type="text" id="company" name="company" class="form-input">
-                        </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Quero receber atualizações sobre novos conteúdos
+                                </label>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Assunto *</label>
-                            <select id="subject" name="subject" class="form-select" required>
-                                <option value="">Selecione um assunto</option>
-                                <option value="job">Oportunidade de Trabalho</option>
-                                <option value="collaboration">Colaboração em Projeto</option>
-                                <option value="question">Dúvida Técnica</option>
-                                <option value="networking">Networking</option>
-                                <option value="other">Outro</option>
-                            </select>
-                        </div>
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span class="btn-text">Enviar Mensagem</span>
+                                <span class="btn-loading" style="display: none;">Enviando...</span>
+                            </button>
 
-                        <div class="form-group">
-                            <label for="message" class="form-label">Mensagem *</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
-                        </div>
-
-                        <button type="submit" class="form-submit">
-                            <span class="submit-text">Enviar Mensagem</span>
-                            <span class="submit-icon">📤</span>
-                        </button>
-                    </form>
-
-                    <div class="form-note">
-                        <p>
-                            * Campos obrigatórios. Seus dados são tratados com total confidencialidade 
-                            e não serão compartilhados com terceiros.
-                        </p>
+                            <div class="form-success" id="successMessage" style="display: none;">
+                                <div class="success-icon">✅</div>
+                                <p>Mensagem enviada com sucesso! Retornarei em breve.</p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Quanto tempo leva para responder?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Geralmente respondo em até 24 horas durante dias úteis. Para projetos urgentes, mencione no assunto da mensagem.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Você aceita projetos freelance?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim! Estou sempre interessado em projetos desafiadores que me permitam aplicar e expandir meus conhecimentos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Posso contribuir com o Knowledge Arsenal?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutamente! Contribuições são sempre bem-vindas. Entre em contato para discutirmos como você pode colaborar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-brand">
-                        <span class="footer-logo">🧠</span>
-                        <h3>Knowledge Arsenal</h3>
-                    </div>
-                    <p class="footer-description">
-                        Repositório pessoal de conhecimentos em desenvolvimento. 
-                        Sempre em evolução, sempre compartilhando.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://github.com/Israel-Junqueira" target="_blank" class="social-link">
-                            <span class="social-icon">🐙</span>
-                            <span class="social-label">GitHub</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/israel-junqueira/" target="_blank" class="social-link">
-                            <span class="social-icon">💼</span>
-                            <span class="social-label">LinkedIn</span>
-                        </a>
-                    </div>
+                    <h3>Knowledge Arsenal</h3>
+                    <p>Construindo conhecimento, um aprendizado por vez.</p>
                 </div>
-                
                 <div class="footer-section">
-                    <h4 class="footer-title">Navegação</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="documentacoes.html">Documentações</a></li>
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
                         <li><a href="projetos.html">Projetos</a></li>
                         <li><a href="contato.html">Contato</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
-                    <h4 class="footer-title">Contato Rápido</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:israelribeiro313@gmail.com">E-mail</a></li>
-                        <li><a href="tel:+5514996983584">Telefone</a></li>
-                        <li><a href="https://www.linkedin.com/in/israel-junqueira/" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://github.com/Israel-Junqueira" target="_blank">GitHub</a></li>
-                    </ul>
+                    <h4>Contato</h4>
+                    <p>📧 israelribeiro313@gmail.com</p>
+                    <p>🌐 https://github.com/Israel-Junqueira</p>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2024 Israel Ribeiro Junqueira. Knowledge Arsenal - Projeto Escolar.</p>
+                <p>&copy; 2025 Knowledge Arsenal. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
-        <span class="back-to-top-icon">↑</span>
-    </button>
-
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            initNavigation();
-            initContactForm();
-            initScrollEffects();
-        });
-
-        function initNavigation() {
-            const navToggle = document.getElementById('nav-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            
-            if (navToggle && navMenu) {
-                navToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                    navToggle.classList.toggle('active');
-                });
-            }
-        }
-
-        function initContactForm() {
-            const form = document.getElementById('contact-form');
-            
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Simular envio do formulário
-                    const submitBtn = form.querySelector('.form-submit');
-                    const originalText = submitBtn.innerHTML;
-                    
-                    submitBtn.innerHTML = '<span class="submit-text">Enviando...</span><span class="submit-icon">⏳</span>';
-                    submitBtn.disabled = true;
-                    
-                    setTimeout(() => {
-                        submitBtn.innerHTML = '<span class="submit-text">Enviado!</span><span class="submit-icon">✅</span>';
-                        
-                        setTimeout(() => {
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.disabled = false;
-                            form.reset();
-                        }, 2000);
-                    }, 2000);
-                });
-            }
-        }
-
-        function initScrollEffects() {
-            const backToTop = document.getElementById('back-to-top');
-            const header = document.getElementById('header');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-                
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-            
-            backToTop.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script>
-
-    <style>
-        /* Contact Specific Styles */
-        .contact-section {
-            padding: var(--spacing-20) 0;
-            background: var(--gray-50);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-16);
-            align-items: start;
-        }
-
-        .contact-info {
-            padding: var(--spacing-8);
-        }
-
-        .contact-title {
-            font-size: var(--font-size-3xl);
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: var(--spacing-4);
-        }
-
-        .contact-description {
-            color: var(--gray-600);
-            margin-bottom: var(--spacing-8);
-            line-height: 1.6;
-            font-size: var(--font-size-lg);
-        }
-
-        .contact-methods {
-            margin-bottom: var(--spacing-8);
-        }
-
-        .contact-method {
-            display: flex;
-            gap: var(--spacing-4);
-            margin-bottom: var(--spacing-6);
-            padding: var(--spacing-4);
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--gray-200);
-            transition: var(--transition);
-        }
-
-        .contact-method:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .method-icon {
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: var(--gray-100);
-            border-radius: var(--radius-lg);
-        }
-
-        .method-content {
-            flex: 1;
-        }
-
-        .method-title {
-            font-size: var(--font-size-lg);
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: var(--spacing-1);
-        }
-
-        .method-description {
-            color: var(--gray-600);
-            font-size: var(--font-size-sm);
-            margin-bottom: var(--spacing-2);
-        }
-
-        .method-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .method-link:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-
-        .availability {
-            background: var(--white);
-            padding: var(--spacing-6);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--gray-200);
-        }
-
-        .availability-title {
-            font-size: var(--font-size-lg);
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: var(--spacing-3);
-        }
-
-        .availability-status {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-2);
-            margin-bottom: var(--spacing-3);
-        }
-
-        .status-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--success-color);
-            animation: pulse-subtle 3s infinite;
-        }
-
-        .status-text {
-            font-weight: 600;
-            color: var(--success-color);
-        }
-
-        .availability-description {
-            color: var(--gray-600);
-            line-height: 1.6;
-        }
-
-        /* Contact Form */
-        .contact-form-container {
-            background: var(--white);
-            padding: var(--spacing-8);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--gray-200);
-        }
-
-        .form-header {
-            margin-bottom: var(--spacing-8);
-        }
-
-        .form-title {
-            font-size: var(--font-size-2xl);
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: var(--spacing-2);
-        }
-
-        .form-description {
-            color: var(--gray-600);
-            line-height: 1.6;
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing-6);
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 600;
-            color: var(--gray-700);
-            margin-bottom: var(--spacing-2);
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: var(--spacing-3);
-            border: 1px solid var(--gray-300);
-            border-radius: var(--radius);
-            font-size: var(--font-size-base);
-            transition: var(--transition);
-            background: var(--white);
-        }
-
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            outline: none;
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: var(--spacing-4) var(--spacing-6);
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            border-radius: var(--radius);
-            font-size: var(--font-size-base);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-2);
-        }
-
-        .form-submit:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .form-submit:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-note {
-            margin-top: var(--spacing-6);
-            padding-top: var(--spacing-4);
-            border-top: 1px solid var(--gray-200);
-        }
-
-        .form-note p {
-            font-size: var(--font-size-sm);
-            color: var(--gray-500);
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-8);
-            }
-            
-            .contact-info {
-                padding: 0;
-            }
-            
-            .contact-method {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .method-icon {
-                align-self: center;
-            }
-        }
-    </style>
+    <script src="js/main.js"></script>
+    <script src="js/knowledge.js"></script>
 </body>
 </html>

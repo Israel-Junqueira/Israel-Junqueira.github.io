@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore conhecimentos em Backend - C#, .NET Core, Node.js, APIs e mais">
+    <meta name="keywords" content="backend, csharp, dotnet, nodejs, api, desenvolvimento servidor">
+    <title>Backend - Knowledge Arsenal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="category-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Knowledge Arsenal</h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="projetos.html" class="nav-link">Projetos</a>
+                    <a href="contato.html" class="nav-link">Contato</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-hero">
+            <div class="category-header">
+                <div class="category-icon-large">⚙️</div>
+                <h1 class="category-title">Backend Development</h1>
+                <p class="category-description">
+                    Domine o desenvolvimento backend com C#, .NET Core, Node.js e criação de APIs robustas
+                </p>
+                <div class="category-stats">
+                    <span class="stat-badge">48 Artigos</span>
+                    <span class="stat-badge">8 Tecnologias</span>
+                    <span class="stat-badge">3 Níveis</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-content">
+            <div class="category-layout">
+                <aside class="category-sidebar">
+                    <div class="sidebar-card">
+                        <h3>🔧 Tecnologias</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item active" data-tech="">
+                                <div class="tech-info">
+                                    <span class="tech-icon">📋</span>
+                                    <span class="tech-name">Todos</span>
+                                </div>
+                                <span class="tech-count">48</span>
+                            </div>
+                            <div class="tech-item" data-tech="csharp">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🔷</span>
+                                    <span class="tech-name">C#</span>
+                                </div>
+                                <span class="tech-count" id="csharp-count">15</span>
+                            </div>
+                            <div class="tech-item" data-tech="dotnet">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🟣</span>
+                                    <span class="tech-name">.NET Core</span>
+                                </div>
+                                <span class="tech-count" id="dotnet-count">12</span>
+                            </div>
+                            <div class="tech-item" data-tech="nodejs">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🟢</span>
+                                    <span class="tech-name">Node.js</span>
+                                </div>
+                                <span class="tech-count" id="nodejs-count">10</span>
+                            </div>
+                            <div class="tech-item" data-tech="api">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🔗</span>
+                                    <span class="tech-name">APIs REST</span>
+                                </div>
+                                <span class="tech-count" id="api-count">8</span>
+                            </div>
+                            <div class="tech-item" data-tech="microservices">
+                                <div class="tech-info">
+                                    <span class="tech-icon">🏗️</span>
+                                    <span class="tech-name">Microserviços</span>
+                                </div>
+                                <span class="tech-count" id="microservices-count">3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>📊 Níveis</h3>
+                        <div class="level-filters">
+                            <button class="level-btn active" data-level="all">Todos os Níveis</button>
+                            <button class="level-btn" data-level="beginner">🟢 Iniciante</button>
+                            <button class="level-btn" data-level="intermediate">🟡 Intermediário</button>
+                            <button class="level-btn" data-level="advanced">🔴 Avançado</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="category-main">
+                    <section class="content-section">
+                        <h2>📚 Artigos e Tutoriais</h2>
+                        <div class="articles-grid">
+                            <article class="article-card" data-tech="csharp" data-level="beginner" data-date="2024-12-28T10:00:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">C#</span>
+                                    <span class="article-level beginner">Iniciante</span>
+                                </div>
+                                <h3>Fundamentos do C# para Iniciantes</h3>
+                                <p>Aprenda os conceitos básicos da linguagem C#: variáveis, tipos de dados, estruturas de controle e programação orientada a objetos.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">10 min</span>
+                                    <span class="article-date">Há 3 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="dotnet" data-level="intermediate" data-date="2024-12-25T14:30:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">.NET Core</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Clean Architecture com .NET Core</h3>
+                                <p>Implementação de arquitetura limpa em projetos .NET Core com separação de responsabilidades e injeção de dependência.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">18 min</span>
+                                    <span class="article-date">Há 6 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="api" data-level="intermediate" data-date="2024-12-20T09:15:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">APIs REST</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>Criando APIs RESTful Robustas</h3>
+                                <p>Boas práticas para desenvolvimento de APIs REST: versionamento, autenticação, tratamento de erros e documentação.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">15 min</span>
+                                    <span class="article-date">Há 11 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="nodejs" data-level="advanced" data-date="2024-12-15T16:45:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Node.js</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Performance e Escalabilidade em Node.js</h3>
+                                <p>Técnicas avançadas para otimizar performance em aplicações Node.js: clustering, caching, profiling e monitoramento.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">25 min</span>
+                                    <span class="article-date">Há 16 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="microservices" data-level="advanced" data-date="2024-12-10T11:20:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">Microserviços</span>
+                                    <span class="article-level advanced">Avançado</span>
+                                </div>
+                                <h3>Arquitetura de Microserviços com Docker</h3>
+                                <p>Transição de monolito para microserviços usando Docker, Kubernetes e padrões de comunicação entre serviços.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">30 min</span>
+                                    <span class="article-date">Há 21 dias</span>
+                                </div>
+                            </article>
+
+                            <article class="article-card" data-tech="csharp" data-level="intermediate" data-date="2024-12-05T13:10:00Z">
+                                <div class="article-header">
+                                    <span class="article-tech">C#</span>
+                                    <span class="article-level intermediate">Intermediário</span>
+                                </div>
+                                <h3>LINQ e Entity Framework Core</h3>
+                                <p>Domine consultas LINQ e mapeamento objeto-relacional com Entity Framework Core para acesso eficiente a dados.</p>
+                                <div class="article-meta">
+                                    <span class="read-time">20 min</span>
+                                    <span class="article-date">Há 26 dias</span>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="content-section">
+                        <h2>💻 Exemplos de Código</h2>
+                        <div class="examples-grid">
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>API Controller em .NET Core</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>[ApiController]
+[Route("api/[controller]")]
+public class UsersController : ControllerBase
+{
+    private readonly IUserService _userService;
+
+    public UsersController(IUserService userService)
+    {
+        _userService = userService;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
+    {
+        try
+        {
+            var users = await _userService.GetAllUsersAsync();
+            return Ok(users);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = ex.Message });
+        }
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<UserDto>> GetUser(int id)
+    {
+        var user = await _userService.GetUserByIdAsync(id);
+        
+        if (user == null)
+            return NotFound();
+            
+        return Ok(user);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<UserDto>> CreateUser(CreateUserDto createUserDto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var user = await _userService.CreateUserAsync(createUserDto);
+        return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+    }
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="example-card">
+                                <div class="example-header">
+                                    <h3>Middleware Personalizado</h3>
+                                </div>
+                                <div class="example-content">
+                                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                                    <pre><code>public class RequestLoggingMiddleware
+{
+    private readonly RequestDelegate _next;
+    private readonly ILogger<RequestLoggingMiddleware> _logger;
+
+    public RequestLoggingMiddleware(RequestDelegate next, ILogger<RequestLoggingMiddleware> logger)
+    {
+        _next = next;
+        _logger = logger;
+    }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        var stopwatch = Stopwatch.StartNew();
+        
+        _logger.LogInformation("Request started: {Method} {Path}", 
+            context.Request.Method, context.Request.Path);
+
+        try
+        {
+            await _next(context);
+        }
+        finally
+        {
+            stopwatch.Stop();
+            _logger.LogInformation("Request completed: {Method} {Path} - {StatusCode} in {ElapsedMs}ms",
+                context.Request.Method, 
+                context.Request.Path,
+                context.Response.StatusCode,
+                stopwatch.ElapsedMilliseconds);
+        }
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Knowledge Arsenal</h3>
+                    <p>Construindo conhecimento, um aprendizado por vez.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>📧 contato@knowledgearsenal.com</p>
+                    <p>🌐 github.com/seuusuario</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Knowledge Arsenal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/category-standard.js"></script>
+</body>
+</html>
