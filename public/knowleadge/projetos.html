@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Knowledge Arsenal</title>
+    <meta name="description" content="Repositórios e projetos desenvolvidos organizados por tecnologia e categoria.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="index.html" class="nav-logo">
+                        <span class="logo-icon">🧠</span>
+                        <span class="logo-text">Knowledge Arsenal</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="nav-icon">🏠</i>
+                            <span>Início</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="documentacoes.html" class="nav-link">
+                            <i class="nav-icon">📚</i>
+                            <span>Documentações</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projetos.html" class="nav-link active">
+                            <i class="nav-icon">🚀</i>
+                            <span>Projetos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contato.html" class="nav-link">
+                            <i class="nav-icon">📧</i>
+                            <span>Contato</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">🚀 Projetos</h1>
+                <p class="page-subtitle">
+                    Repositórios e aplicações desenvolvidas durante minha jornada de aprendizado
+                </p>
+                <div class="page-breadcrumb">
+                    <a href="index.html">Início</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span class="breadcrumb-current">Projetos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <!-- Search and Filter -->
+            <div class="projects-controls">
+                <div class="search-box">
+                    <input type="text" id="projects-search" placeholder="Buscar projetos..." class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+                
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">Todos</button>
+                    <button class="filter-tab" data-filter="web">Web Apps</button>
+                    <button class="filter-tab" data-filter="api">APIs</button>
+                    <button class="filter-tab" data-filter="desktop">Desktop</button>
+                    <button class="filter-tab" data-filter="study">Estudos</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projects-grid">
+                <!-- Main Projects -->
+                <div class="project-card featured" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder">🚌</div>
+                        <div class="project-status status-complete">Completo</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">LocalBus</h3>
+                            <div class="project-type">TCC - Web App</div>
+                        </div>
+                        <p class="project-description">
+                            Aplicativo web para otimização de rotas de ônibus escolares. 
+                            Desenvolvido como projeto de TCC com foco em melhorar a experiência dos estudantes.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">Entity Framework</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">⭐ 5 stars</span>
+                            <span class="stat-item">📅 2022</span>
+                            <span class="stat-item">🔧 C#</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/Israel-Junqueira/Projeto-LocalBus-View" target="_blank" class="btn btn-primary">
+                            🐙 Ver no GitHub
+                        </a>
+                        <button class="btn btn-outline">📖 Documentação</button>
+                    </div>
+                </div>
+
+                <div class="project-card featured" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder">🚚</div>
+                        <div class="project-status status-complete">Completo</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">EntregaRapida</h3>
+                            <div class="project-type">TCC - Web App</div>
+                        </div>
+                        <p class="project-description">
+                            Plataforma para otimização de entregas com funcionalidades em tempo real usando SignalR. 
+                            Conecta entregadores e estabelecimentos de forma eficiente.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">SignalR</span>
+                            <span class="tech-tag">Entity Framework</span>
+                            <span class="tech-tag">Real-time</span>
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">⭐ 4 stars</span>
+                            <span class="stat-item">📅 2022</span>
+                            <span class="stat-item">🔧 C#</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/Israel-Junqueira/EF_entregaRapida" target="_blank" class="btn btn-primary">
+                            🐙 Ver no GitHub
+                        </a>
+                        <button class="btn btn-outline">📖 Documentação</button>
+                    </div>
+                </div>
+
+                <!-- API Projects -->
+                <div class="project-card" data-category="api">
+                    <div class="project-image">
+                        <div class="project-placeholder">⚙️</div>
+                        <div class="project-status status-complete">Completo</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Task Manager API</h3>
+                            <div class="project-type">API RESTful</div>
+                        </div>
+                        <p class="project-description">
+                            API completa para gerenciamento de tarefas com autenticação JWT, 
+                            CRUD operations e documentação Swagger.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">Entity Framework</span>
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">⭐ 3 stars</span>
+                            <span class="stat-item">📅 2023</span>
+                            <span class="stat-item">🔧 C#</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-primary">🐙 Ver no GitHub</a>
+                        <button class="btn btn-outline">📋 API Docs</button>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="api">
+                    <div class="project-image">
+                        <div class="project-placeholder">📊</div>
+                        <div class="project-status status-progress">Em Progresso</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">E-commerce API</h3>
+                            <div class="project-type">API RESTful</div>
+                        </div>
+                        <p class="project-description">
+                            API robusta para e-commerce com carrinho de compras, 
+                            pagamentos, estoque e sistema de avaliações.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">Clean Architecture</span>
+                            <span class="tech-tag">CQRS</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">⭐ 2 stars</span>
+                            <span class="stat-item">📅 2024</span>
+                            <span class="stat-item">🔧 C#</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-primary">🐙 Ver no GitHub</a>
+                        <button class="btn btn-outline">📋 API Docs</button>
+                    </div>
+                </div>
+
+                <!-- Study Projects -->
+                <div class="project-card" data-category="study">
+                    <div class="project-image">
+                        <div class="project-placeholder">🐳</div>
+                        <div class="project-status status-progress">Estudando</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Docker Studies</h3>
+                            <div class="project-type">Projeto de Estudo</div>
+                        </div>
+                        <p class="project-description">
+                            Repositório com exemplos práticos de Docker: Dockerfiles, 
+                            Docker Compose e deploy de aplicações .NET.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Docker Compose</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">DevOps</span>
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">⭐ 1 star</span>
+                            <span class="stat-item">📅 2024</span>
+                            <span class="stat-item">🔧 Docker</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-primary">🐙 Ver no GitHub</a>
+                        <button class="btn btn-outline">📚 Anotações</button>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="study">
+                    <div class="project-image">
+                        <div class="project-placeholder">🟨</div>
+                        <div class="project-status status-complete">Completo</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">JavaScript Projects</h3>
+                            <div class="project-type">Projetos Frontend</div>
+                        </div>
+                        <p class="project-description">
+                            Coleção de projetos JavaScript: calculadora, to-do list, 
+                            weather app e outros projetos para prática.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">DOM</span>
+                            <span class="tech-tag">APIs</span>
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">⭐ 6 stars</span>
+                            <span class="stat-item">📅 2023</span>
+                            <span class="stat-item">🔧 JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-primary">🐙 Ver no GitHub</a>
+                        <button class="btn btn-outline">🌐 Demo</button>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="desktop">
+                    <div class="project-image">
+                        <div class="project-placeholder">🖥️</div>
+                        <div class="project-status status-complete">Completo</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Inventory Manager</h3>
+                            <div class="project-type">Desktop App</div>
+                        </div>
+                        <p class="project-description">
+                            Sistema desktop para controle de estoque com Windows Forms. 
+                            Cadastro de produtos, relatórios e controle de movimentação.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Windows Forms</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Crystal Reports</span>
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">⭐ 3 stars</span>
+                            <span class="stat-item">📅 2021</span>
+                            <span class="stat-item">🔧 C#</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="btn btn-primary">🐙 Ver no GitHub</a>
+                        <button class="btn btn-outline">📥 Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="footer-logo">🧠</span>
+                        <h3>Knowledge Arsenal</h3>
+                    </div>
+                    <p class="footer-description">
+                        Repositório pessoal de conhecimentos em desenvolvimento. 
+                        Sempre em evolução, sempre compartilhando.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/Israel-Junqueira" target="_blank" class="social-link">
+                            <span class="social-icon">🐙</span>
+                            <span class="social-label">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/israel-junqueira/" target="_blank" class="social-link">
+                            <span class="social-icon">💼</span>
+                            <span class="social-label">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="documentacoes.html">Documentações</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Tipos de Projeto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-filter="web">Web Apps</a></li>
+                        <li><a href="#" data-filter="api">APIs</a></li>
+                        <li><a href="#" data-filter="desktop">Desktop</a></li>
+                        <li><a href="#" data-filter="study">Estudos</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Israel Ribeiro Junqueira. Knowledge Arsenal - Projeto Escolar.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <span class="back-to-top-icon">↑</span>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initNavigation();
+            initProjectsFilters();
+            initScrollEffects();
+        });
+
+        function initNavigation() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+        }
+
+        function initProjectsFilters() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const searchInput = document.getElementById('projects-search');
+            
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    filterProjects(filter, searchInput ? searchInput.value : '');
+                });
+            });
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const activeFilter = document.querySelector('.filter-tab.active');
+                    const filter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+                    filterProjects(filter, this.value);
+                });
+            }
+        }
+
+        function filterProjects(categoryFilter, searchQuery) {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                let showCard = true;
+                
+                if (categoryFilter !== 'all') {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory !== categoryFilter) {
+                        showCard = false;
+                    }
+                }
+                
+                if (searchQuery.trim() && showCard) {
+                    const title = card.querySelector('.project-title').textContent.toLowerCase();
+                    const description = card.querySelector('.project-description').textContent.toLowerCase();
+                    const query = searchQuery.toLowerCase();
+                    
+                    if (!title.includes(query) && !description.includes(query)) {
+                        showCard = false;
+                    }
+                }
+                
+                card.style.display = showCard ? 'block' : 'none';
+            });
+        }
+
+        function initScrollEffects() {
+            const backToTop = document.getElementById('back-to-top');
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+                
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+
+    <style>
+        /* Projects Specific Styles */
+        .projects-section {
+            padding: var(--spacing-20) 0;
+            background: var(--gray-50);
+        }
+
+        .projects-controls {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+            align-items: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-8);
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-card.featured {
+            border: 2px solid var(--primary-color);
+        }
+
+        .project-image {
+            position: relative;
+            height: 120px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-placeholder {
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .project-status {
+            position: absolute;
+            top: var(--spacing-3);
+            right: var(--spacing-3);
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+        }
+
+        .status-complete {
+            background: var(--success-color);
+            color: var(--white);
+        }
+
+        .status-progress {
+            background: var(--warning-color);
+            color: var(--white);
+        }
+
+        .project-content {
+            padding: var(--spacing-6);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .project-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .project-type {
+            font-size: var(--font-size-xs);
+            color: var(--gray-500);
+            background: var(--gray-100);
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--radius-sm);
+        }
+
+        .project-description {
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-4);
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .tech-tag {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+        }
+
+        .project-stats {
+            display: flex;
+            gap: var(--spacing-4);
+            font-size: var(--font-size-xs);
+            color: var(--gray-500);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: var(--spacing-2);
+            padding: 0 var(--spacing-6) var(--spacing-6);
+        }
+
+        .project-actions .btn {
+            flex: 1;
+            font-size: var(--font-size-sm);
+            padding: var(--spacing-2) var(--spacing-3);
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                gap: var(--spacing-2);
+            }
+            
+            .project-stats {
+                flex-direction: column;
+                gap: var(--spacing-1);
+            }
+            
+            .project-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

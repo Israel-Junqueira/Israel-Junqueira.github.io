@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentações - Knowledge Arsenal</title>
+    <meta name="description" content="Documentações técnicas e guias de referência organizados por tecnologia.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="index.html" class="nav-logo">
+                        <span class="logo-icon">🧠</span>
+                        <span class="logo-text">Knowledge Arsenal</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="nav-icon">🏠</i>
+                            <span>Início</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="documentacoes.html" class="nav-link active">
+                            <i class="nav-icon">📚</i>
+                            <span>Documentações</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projetos.html" class="nav-link">
+                            <i class="nav-icon">🚀</i>
+                            <span>Projetos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contato.html" class="nav-link">
+                            <i class="nav-icon">📧</i>
+                            <span>Contato</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">📚 Documentações</h1>
+                <p class="page-subtitle">
+                    Guias técnicos, referências e documentações organizadas por tecnologia
+                </p>
+                <div class="page-breadcrumb">
+                    <a href="index.html">Início</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span class="breadcrumb-current">Documentações</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Categories -->
+    <section class="docs-section">
+        <div class="container">
+            <!-- Search and Filter -->
+            <div class="docs-controls">
+                <div class="search-box">
+                    <input type="text" id="docs-search" placeholder="Buscar documentações..." class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+                
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">Todas</button>
+                    <button class="filter-tab" data-filter="backend">Backend</button>
+                    <button class="filter-tab" data-filter="frontend">Frontend</button>
+                    <button class="filter-tab" data-filter="database">Database</button>
+                    <button class="filter-tab" data-filter="tools">Ferramentas</button>
+                </div>
+            </div>
+
+            <!-- Documentation Grid -->
+            <div class="docs-grid" id="docs-grid">
+                <!-- Backend Docs -->
+                <div class="doc-card" data-category="backend">
+                    <div class="doc-header">
+                        <div class="doc-icon">⚙️</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Backend</span>
+                            <span class="doc-status status-complete">Completo</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">.NET Core</h3>
+                        <p class="doc-description">
+                            Guia completo sobre desenvolvimento com .NET Core, incluindo APIs, middleware, 
+                            dependency injection e boas práticas.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">APIs RESTful</span>
+                            <span class="topic-tag">Middleware</span>
+                            <span class="topic-tag">DI Container</span>
+                            <span class="topic-tag">Authentication</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 15/01/2024</span>
+                            <span class="doc-pages">📄 25 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+
+                <div class="doc-card" data-category="backend">
+                    <div class="doc-header">
+                        <div class="doc-icon">💻</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Backend</span>
+                            <span class="doc-status status-complete">Completo</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">C# Avançado</h3>
+                        <p class="doc-description">
+                            Conceitos avançados de C#: LINQ, Async/Await, Generics, Delegates, 
+                            Events e padrões de design.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">LINQ</span>
+                            <span class="topic-tag">Async/Await</span>
+                            <span class="topic-tag">Generics</span>
+                            <span class="topic-tag">Design Patterns</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 10/01/2024</span>
+                            <span class="doc-pages">📄 32 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+
+                <!-- Database Docs -->
+                <div class="doc-card" data-category="database">
+                    <div class="doc-header">
+                        <div class="doc-icon">🗄️</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Database</span>
+                            <span class="doc-status status-complete">Completo</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">Entity Framework Core</h3>
+                        <p class="doc-description">
+                            Guia completo do EF Core: Code First, Database First, migrações, 
+                            relacionamentos e otimização de performance.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">Code First</span>
+                            <span class="topic-tag">Migrations</span>
+                            <span class="topic-tag">Relationships</span>
+                            <span class="topic-tag">Performance</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 08/01/2024</span>
+                            <span class="doc-pages">📄 28 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+
+                <div class="doc-card" data-category="database">
+                    <div class="doc-header">
+                        <div class="doc-icon">📊</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Database</span>
+                            <span class="doc-status status-complete">Completo</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">SQL Server</h3>
+                        <p class="doc-description">
+                            Referência completa de SQL Server: T-SQL, stored procedures, 
+                            índices, otimização e administração.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">T-SQL</span>
+                            <span class="topic-tag">Procedures</span>
+                            <span class="topic-tag">Indexes</span>
+                            <span class="topic-tag">Optimization</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 12/01/2024</span>
+                            <span class="doc-pages">📄 35 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+
+                <!-- Frontend Docs -->
+                <div class="doc-card" data-category="frontend">
+                    <div class="doc-header">
+                        <div class="doc-icon">🟨</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Frontend</span>
+                            <span class="doc-status status-complete">Completo</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">JavaScript Moderno</h3>
+                        <p class="doc-description">
+                            Guia de JavaScript ES6+: arrow functions, destructuring, 
+                            promises, async/await e módulos.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">ES6+</span>
+                            <span class="topic-tag">Promises</span>
+                            <span class="topic-tag">Async/Await</span>
+                            <span class="topic-tag">Modules</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 05/01/2024</span>
+                            <span class="doc-pages">📄 22 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+
+                <div class="doc-card" data-category="frontend">
+                    <div class="doc-header">
+                        <div class="doc-icon">🎨</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Frontend</span>
+                            <span class="doc-status status-complete">Completo</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">HTML & CSS</h3>
+                        <p class="doc-description">
+                            Referência de HTML semântico e CSS moderno: Flexbox, Grid, 
+                            responsividade e boas práticas.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">Semantic HTML</span>
+                            <span class="topic-tag">Flexbox</span>
+                            <span class="topic-tag">CSS Grid</span>
+                            <span class="topic-tag">Responsive</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 03/01/2024</span>
+                            <span class="doc-pages">📄 18 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+
+                <!-- Tools Docs -->
+                <div class="doc-card" data-category="tools">
+                    <div class="doc-header">
+                        <div class="doc-icon">🐳</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Tools</span>
+                            <span class="doc-status status-progress">Em Progresso</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">Docker</h3>
+                        <p class="doc-description">
+                            Guia de containerização com Docker: Dockerfile, Docker Compose, 
+                            volumes e deploy de aplicações.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">Dockerfile</span>
+                            <span class="topic-tag">Docker Compose</span>
+                            <span class="topic-tag">Volumes</span>
+                            <span class="topic-tag">Deploy</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 14/01/2024</span>
+                            <span class="doc-pages">📄 15 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+
+                <div class="doc-card" data-category="tools">
+                    <div class="doc-header">
+                        <div class="doc-icon">🌿</div>
+                        <div class="doc-meta">
+                            <span class="doc-category">Tools</span>
+                            <span class="doc-status status-complete">Completo</span>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h3 class="doc-title">Git & GitHub</h3>
+                        <p class="doc-description">
+                            Controle de versão com Git: comandos essenciais, branching, 
+                            merge, rebase e workflows colaborativos.
+                        </p>
+                        <div class="doc-topics">
+                            <span class="topic-tag">Git Commands</span>
+                            <span class="topic-tag">Branching</span>
+                            <span class="topic-tag">Merge/Rebase</span>
+                            <span class="topic-tag">Workflows</span>
+                        </div>
+                        <div class="doc-info">
+                            <span class="doc-updated">📅 Atualizado em 01/01/2024</span>
+                            <span class="doc-pages">📄 20 páginas</span>
+                        </div>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="btn btn-primary">📖 Ler Documentação</button>
+                        <button class="btn btn-outline">📥 Download PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="footer-logo">🧠</span>
+                        <h3>Knowledge Arsenal</h3>
+                    </div>
+                    <p class="footer-description">
+                        Repositório pessoal de conhecimentos em desenvolvimento. 
+                        Sempre em evolução, sempre compartilhando.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/Israel-Junqueira" target="_blank" class="social-link">
+                            <span class="social-icon">🐙</span>
+                            <span class="social-label">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/israel-junqueira/" target="_blank" class="social-link">
+                            <span class="social-icon">💼</span>
+                            <span class="social-label">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="documentacoes.html">Documentações</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Categorias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-filter="backend">Backend</a></li>
+                        <li><a href="#" data-filter="frontend">Frontend</a></li>
+                        <li><a href="#" data-filter="database">Database</a></li>
+                        <li><a href="#" data-filter="tools">Ferramentas</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Israel Ribeiro Junqueira. Knowledge Arsenal - Projeto Escolar.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <span class="back-to-top-icon">↑</span>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initNavigation();
+            initDocsFilters();
+            initScrollEffects();
+        });
+
+        function initNavigation() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+        }
+
+        function initDocsFilters() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const searchInput = document.getElementById('docs-search');
+            const docCards = document.querySelectorAll('.doc-card');
+            
+            // Filtros por categoria
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    filterDocs(filter, searchInput ? searchInput.value : '');
+                });
+            });
+            
+            // Busca
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const activeFilter = document.querySelector('.filter-tab.active');
+                    const filter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+                    filterDocs(filter, this.value);
+                });
+            }
+        }
+
+        function filterDocs(categoryFilter, searchQuery) {
+            const docCards = document.querySelectorAll('.doc-card');
+            
+            docCards.forEach(card => {
+                let showCard = true;
+                
+                // Filtrar por categoria
+                if (categoryFilter !== 'all') {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory !== categoryFilter) {
+                        showCard = false;
+                    }
+                }
+                
+                // Filtrar por busca
+                if (searchQuery.trim() && showCard) {
+                    const title = card.querySelector('.doc-title').textContent.toLowerCase();
+                    const description = card.querySelector('.doc-description').textContent.toLowerCase();
+                    const query = searchQuery.toLowerCase();
+                    
+                    if (!title.includes(query) && !description.includes(query)) {
+                        showCard = false;
+                    }
+                }
+                
+                card.style.display = showCard ? 'block' : 'none';
+            });
+        }
+
+        function initScrollEffects() {
+            const backToTop = document.getElementById('back-to-top');
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                // Back to top
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+                
+                // Header scroll effect
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+
+    <style>
+        /* Page Header Styles */
+        .page-header {
+            padding: var(--spacing-20) 0 var(--spacing-16);
+            background: var(--gradient-hero);
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-header-content {
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-4);
+            letter-spacing: -0.025em;
+        }
+
+        .page-subtitle {
+            font-size: var(--font-size-xl);
+            opacity: 0.9;
+            margin-bottom: var(--spacing-6);
+            color: var(--gray-300);
+        }
+
+        .page-breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2);
+            font-size: var(--font-size-sm);
+        }
+
+        .page-breadcrumb a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .page-breadcrumb a:hover {
+            color: var(--white);
+        }
+
+        .breadcrumb-separator {
+            color: var(--gray-400);
+        }
+
+        .breadcrumb-current {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Documentation Styles */
+        .docs-section {
+            padding: var(--spacing-20) 0;
+            background: var(--gray-50);
+        }
+
+        .docs-controls {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+            align-items: center;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-8);
+        }
+
+        .doc-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .doc-header {
+            background: var(--gradient-primary);
+            padding: var(--spacing-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .doc-icon {
+            font-size: 1.75rem;
+        }
+
+        .doc-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: var(--spacing-1);
+        }
+
+        .doc-category {
+            font-size: var(--font-size-xs);
+            opacity: 0.8;
+        }
+
+        .doc-status {
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+        }
+
+        .status-complete {
+            background: var(--success-color);
+            color: var(--white);
+        }
+
+        .status-progress {
+            background: var(--warning-color);
+            color: var(--white);
+        }
+
+        .doc-content {
+            padding: var(--spacing-6);
+        }
+
+        .doc-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .doc-description {
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-4);
+            line-height: 1.6;
+        }
+
+        .doc-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .topic-tag {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+        }
+
+        .doc-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: var(--font-size-xs);
+            color: var(--gray-500);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .doc-actions {
+            display: flex;
+            gap: var(--spacing-2);
+            padding: 0 var(--spacing-6) var(--spacing-6);
+        }
+
+        .doc-actions .btn {
+            flex: 1;
+            font-size: var(--font-size-sm);
+            padding: var(--spacing-2) var(--spacing-3);
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .doc-info {
+                flex-direction: column;
+                gap: var(--spacing-1);
+            }
+            
+            .doc-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
