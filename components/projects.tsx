@@ -17,9 +17,9 @@ export function Projects() {
     {
       title: "EntregaRapida",
       description:
-        "Aplicativo Web desenvolvido como ferramenta para melhorar a disponibilidade de entregadores para delivery, incluindo funcionalidades em tempo real com Signal.R.",
+        "Aplicativo Web desenvolvido como ferramenta para melhorar a disponibilidade de entregadores para delivery, incluindo funcionalidades em tempo real com SignalR.",
       image: "/entregarapida.png?height=200&width=400",
-      tags: ["C#", ".NET Core", "Signal.R", "Entity Framework"],
+      tags: ["C#", ".NET Core", "SignalR", "Entity Framework"],
       github: "https://github.com/Israel-Junqueira/EF_entregaRapida",
       type: "Projeto de TCC - Ensino Técnico",
     },
@@ -28,8 +28,8 @@ export function Projects() {
     description: "Site acadêmico desenvolvido com HTML5, CSS3 e JavaScript puro. Plataforma de tutoriais com funcionalidades interativas, formulários validados e design responsivo.",
     image: "/placeholder.svg?height=200&width=400",
     tags: ["HTML5", "CSS3", "JavaScript", "jQuery", "Responsive Design"],
-    github: "https://github.com/Israel-Junqueira/Israel-Junqueira.github.io/tree/main/devlearning",
-    demo: "/devlearning", // Link para o site
+    github: "https://github.com/Israel-Junqueira/Israel-Junqueira.github.io/tree/main/public/knowleadge",
+    demo: "/knowleadge/index.html", // Link para o site
     type: "Projeto Acadêmico - Desenvolvimento Web",
    },
   ]
@@ -37,9 +37,9 @@ export function Projects() {
   return (
     <section id="projetos" className="py-16 md:py-24 bg-background">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Projetos</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Projetos acadêmicos</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Projetos desenvolvidos durante minha formação técnica, com foco em aprendizado e aplicação prática dos conhecimentos adquiridos. Cada projeto foi uma oportunidade de evoluir e exercitar minhas habilidades em desenvolvimento de sistemas e resolução de problemas.
+          Projetos da formação técnica que complementam minha experiência profissional com aplicações web e desenvolvimento de sistemas.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
@@ -59,19 +59,19 @@ export function Projects() {
                 <p className="mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="bg-primary/10 text-primary text-xs px-2 py-1 rounded-md">
+                    <span key={i} className="bg-primary/10 text-primary text-sm px-2 py-1 rounded-md">
                       {tag}
                     </span>
                   ))}
                 </div>
               </CardContent>
               <CardFooter>
-                <Link href={project.github} target="_blank">
-                  <Button variant="outline">
-                    <Github className="mr-2 h-4 w-4" />
+                <Button asChild variant="outline">
+                <Link href={project.github} target="_blank" rel="noreferrer">
+                  <Github className="mr-2 h-4 w-4" />
                     Ver no GitHub
-                  </Button>
                 </Link>
+                </Button>
               </CardFooter>
             </Card>
           ))}

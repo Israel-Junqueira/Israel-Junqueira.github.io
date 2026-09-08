@@ -1,57 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { GraduationCap, Calendar } from "lucide-react"
+import Link from "next/link"
+import { GraduationCap } from "lucide-react"
+import profile from "@/data/profile.json"
 
 export function Education() {
-  const education = [
-    {
-      degree: "Bacharelado em Engenharia de software",
-      institution: "CESUMAR Centro de Ensino Superior de Maringa",
-      period: "2024 - Atualmente",
-      description:
-        "Formação focada em arquitetura de software, engenharia de requisitos, desenvolvimento full stack e boas práticas de programação. O curso tem contribuído para aprofundar minha capacidade de projetar soluções escaláveis, seguras e alinhadas às necessidades do negócio.",
-    },
-    {
-      degree: "Técnico em Desenvolvimento de Sistemas",
-      institution: "ETEC Comendador João Rays / Barra Bonita",
-      period: "2021 - 2022",
-      description:
-        "Formação especializada em desenvolvimento de sistemas, com foco em linguagens de programação, bancos de dados e desenvolvimento de aplicações. Aquisição de habilidades para projetar e implementar soluções tecnológicas inovadoras.",
-    },
-    {
-      degree: "Técnico em Informática",
-      institution: "ETEC Comendador João Rays / Barra Bonita",
-      period: "2020 - 2021",
-      description:
-        "Formação técnica em informática com foco em programação, suporte a sistemas e redes. Desenvolvimento de habilidades essenciais para resolução de problemas complexos e trabalho em equipe.",
-    },
-  ]
-
   return (
-    <section id="formacao" className="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
-      <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Formação Acadêmica</h2>
-        <div className="max-w-3xl mx-auto space-y-8">
-          {education.map((item, index) => (
-            <Card key={index} className="border-none shadow-lg">
-              <CardHeader className="flex flex-row items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <GraduationCap className="h-6 w-6 text-primary" />
-                </div>
-                <div className="space-y-1">
-                  <CardTitle>{item.degree}</CardTitle>
-                  <div className="flex items-center text-muted-foreground">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    <span>{item.period}</span>
-                  </div>
-                  <p className="font-medium">{item.institution}</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{item.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+    <section id="formacao" className="border-t py-16 md:py-20">
+      <div className="container grid gap-10 md:grid-cols-2">
+        <div><h2 className="text-3xl font-bold">Formação</h2><div className="mt-8 space-y-7">{profile.education.map((item) => <div key={item.course}><h3 className="text-xl font-semibold">{item.course}</h3><p className="mt-2 text-muted-foreground">{item.institution}</p><p className="mt-1 text-sm text-muted-foreground">{item.status}</p></div>)}</div></div>
+        <div><h2 className="text-3xl font-bold">Aprendizado contínuo</h2><p className="mt-8 text-base leading-relaxed text-muted-foreground">{profile.languages}</p><p className="mt-4 text-base leading-relaxed text-muted-foreground">{profile.additional}</p><Link href="/knowleadge/index.html" className="mt-6 inline-flex items-center gap-2 font-medium text-primary underline-offset-4 hover:underline"><GraduationCap className="h-5 w-5" aria-hidden="true" />Acessar minha área de conhecimento</Link></div>
       </div>
     </section>
   )

@@ -1,0 +1,136 @@
+{
+  "name": "Israel Ribeiro Junqueira",
+  "headline": "Desenvolvimento de sistemas e integrações",
+  "stack": "C# / .NET · SQL · AWS",
+  "location": "Barra Bonita, SP",
+  "email": "israelribeiro313@gmail.com",
+  "phone": "(14) 99698-3584",
+  "phoneHref": "+5514996983584",
+  "github": "https://github.com/Israel-Junqueira",
+  "linkedin": "https://www.linkedin.com/in/israel-junqueira/",
+  "website": "https://israel-junqueira.github.io",
+  "summary": "Analista de Desenvolvimento de Sistemas com atuação na Barracred desde 2023. Desenvolvo integrações com C#/.NET, SQL Oracle e PostgreSQL e automações em AWS para processos regulatórios. Conduzi a arquitetura técnica e a implementação de soluções SCR 3040 e 3044 em produção, com foco em consistência de dados, rastreabilidade e tratamento de falhas.",
+  "intro": "Conecto sistemas, automatizo processos e transformo regras de negócio em software. Minha experiência reúne integrações de dados e soluções regulatórias em produção para cooperativa de crédito.",
+  "company": "Barracred — Cooperativa de Crédito",
+  "role": "Analista de Desenvolvimento de Sistemas",
+  "period": "08/2023 – atual",
+  "experience": [
+    "Conduzi a arquitetura técnica e implementei as soluções SCR 3040 e 3044 em produção, traduzindo manuais do Banco Central em regras de negócio, integrações e rotinas de processamento.",
+    "Desenvolvi sincronização entre Oracle e PostgreSQL com APIs, SNS/SQS e processamento assíncrono, incluindo funções PL/SQL, triggers, modelagem e migrations do Entity Framework.",
+    "Corrigi a sincronização de históricos de vínculo empregatício e restrições de cooperados, adequando payloads e consumidores para preservar histórico e considerar a vigência dos registros.",
+    "Automatizei a consulta de status e o download de retornos do 3044 via API STA, com classificação de respostas, tratamento de rejeições, armazenamento no S3 e logs para rastreabilidade.",
+    "Estruturei o processamento mensal do 3040 com persistência no DynamoDB, geração e validação de XML, mensageria e mecanismos de idempotência e reprocessamento.",
+    "Desenvolvo e configuro rotinas AWS Lambda acionadas por SQS para registro de logs em DynamoDB, envio de e-mails via SES e processamento de arquivos no S3. Configuro permissões IAM, monitoramento no CloudWatch e parâmetros de execução.",
+    "Acompanho pipelines e deploys no Azure DevOps em DEV, HML e PRD, validando logs e integrações junto à operação; apoio análise de falhas e reversões. Produzo documentação técnica das implementações."
+  ],
+  "skills": [
+    {
+      "title": "Desenvolvimento e APIs",
+      "tools": "C# · .NET · APIs REST · Web Services · JSON · XML",
+      "description": "Implementação de regras de negócio e integração de aplicações. Uso de Clean Architecture, DDD e princípios SOLID na organização das soluções."
+    },
+    {
+      "title": "Bancos de dados e SQL",
+      "tools": "Oracle · PL/SQL · PostgreSQL · Entity Framework",
+      "description": "Consultas complexas, joins, funções, procedures e triggers. Modelagem, chaves, índices, migrations e investigação de inconsistências de dados."
+    },
+    {
+      "title": "Integração e sincronização",
+      "tools": "APIs · SNS/SQS · processamento assíncrono",
+      "description": "Sincronização entre bancos, transformação de payloads e tratamento de histórico e vigência para manter os dados coerentes entre sistemas."
+    },
+    {
+      "title": "AWS e automação",
+      "tools": "AWS Lambda · SQS · SNS · S3 · DynamoDB · SES · IAM · CloudWatch",
+      "description": "Funções orientadas a eventos, gatilhos SQS, permissões IAM por função, acesso em VPC e Secrets Manager. Configuração de memória e timeout, monitoramento de APIs e alertas de falhas."
+    },
+    {
+      "title": "Entrega e operação",
+      "tools": "Git · Pull Requests · Azure DevOps · DEV/HML/PRD",
+      "description": "Acompanhamento de pipelines e deploys junto à operação. Validação de logs e integrações, análise de falhas e apoio à reversão de versões."
+    },
+    {
+      "title": "Regras e rastreabilidade",
+      "tools": "Requisitos · documentação técnica · diagnóstico",
+      "description": "Tradução de manuais regulatórios e requisitos repassados pelo PO em software. Documentação das implementações e investigação de erros de processamento."
+    }
+  ],
+  "cases": [
+    {
+      "id": "01",
+      "title": "Sincronização Oracle → PostgreSQL",
+      "category": "Integração de dados",
+      "context": "A origem armazenava histórico e vigência, enquanto o destino mantinha apenas o estado atual de parte dos dados.",
+      "action": "Ajustei relacionamentos, funções e triggers Oracle, ampliei os payloads e a modelagem no PostgreSQL e adaptei o consumidor assíncrono.",
+      "result": "Sincronização corrigida para preservar os dados históricos necessários e considerar o cooperado vigente.",
+      "details": "SQL e PL/SQL, geração de JSON, APIs, SNS/SQS, migrations do Entity Framework, tabelas, chaves e índices.",
+      "tags": [
+        "Oracle",
+        "PostgreSQL",
+        "PL/SQL",
+        "SNS/SQS"
+      ]
+    },
+    {
+      "id": "02",
+      "title": "SCR 3040: da regra ao processamento",
+      "category": "Sistema regulatório · em produção",
+      "context": "A geração do documento regulatório exigia consolidar dados de diferentes serviços e manter uma trilha consistente por competência mensal.",
+      "action": "Conduzi a arquitetura e implementei o fluxo a partir dos manuais do Banco Central, integrando sincronização, persistência normativa, geração de XML e validação.",
+      "result": "Solução em produção com rastreabilidade por etapa, artefatos validados e mecanismos de reprocessamento e idempotência.",
+      "details": "C#/.NET, Oracle e PostgreSQL, DynamoDB com Single Table Design e índices de consulta, SNS/SQS, armazenamento em S3 e validação com ferramenta oficial.",
+      "tags": [
+        "C#/.NET",
+        "DynamoDB",
+        "XML",
+        "AWS"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "3044: automação dos retornos",
+      "category": "Integração e automação · em produção",
+      "context": "A consulta de status e o download dos retornos de arquivos enviados ao Banco Central dependiam de verificações manuais.",
+      "action": "Implementei a integração com a API STA para consultar status, baixar e classificar respostas, obter detalhes de rejeições e organizar os arquivos no S3.",
+      "result": "Monitoramento e download automatizados, com respostas organizadas e logs que apoiam a investigação de rejeições.",
+      "details": "API externa, processamento em background com Hangfire, armazenamento em AWS S3 e rastreamento de status e arquivos de resposta.",
+      "tags": [
+        "APIs",
+        "Hangfire",
+        "S3",
+        "Logs"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "course": "Bacharelado em Engenharia de Software",
+      "institution": "UniCesumar",
+      "status": "2023 - em andamento | conclusão prevista em 2028"
+    },
+    {
+      "course": "Técnico em Desenvolvimento de Sistemas",
+      "institution": "Centro Paula Souza",
+      "status": "Concluído em 2020"
+    },
+    {
+      "course": "Técnico em Informática",
+      "institution": "Centro Paula Souza",
+      "status": "Concluído em 2018"
+    },
+    {
+      "course": "Desenvolvimento de Sistemas para Web",
+      "institution": "Centro Paula Souza",
+      "status": "Concluído em 2017"
+    }
+  ],
+  "languages": "Inglês: leitura de documentação técnica com auxílio de ferramentas de tradução e IA.",
+  "additional": "Conhecimentos básicos de Word, Excel, PowerPoint e Windows. Disponibilidade para viagens ocasionais.",
+  "resumeExperience": [
+    "Conduzi a arquitetura técnica e implementei SCR 3040 e 3044 em produção, traduzindo manuais do Banco Central em regras de negócio, geração e validação de XML e rotinas rastreáveis.",
+    "Desenvolvi integrações Oracle-PostgreSQL via APIs e SNS/SQS, com PL/SQL, funções, triggers e migrations. Corrigi a sincronização de históricos de vínculos e restrições, respeitando a vigência dos registros.",
+    "Automatizei consultas e downloads de retornos do 3044 pela API STA, com classificação de respostas, tratamento de rejeições e armazenamento em S3. Estruturei o 3040 com DynamoDB, idempotência e reprocessamento.",
+    "Desenvolvo e configuro AWS Lambda com gatilhos SQS, DynamoDB, SES e S3; atuo com IAM por função, VPC, Secrets Manager, memória, timeout e monitoramento de APIs no CloudWatch.",
+    "Acompanho PRs, pipelines e deploys no Azure DevOps em DEV, HML e PRD junto à operação; valido logs e integrações, investigo falhas e apoio reversões. Produzo documentação técnica das implementações."
+  ]
+}

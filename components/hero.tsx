@@ -1,48 +1,25 @@
-import { Button } from "@/components/ui/button"
-import { ArrowDown, FileText,GraduationCap } from "lucide-react"
+import { ArrowDownRight, FileText, Github, MapPin } from "lucide-react"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import profile from "@/data/profile.json"
 
 export function Hero() {
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-      <div className="container flex flex-col items-center text-center">
-        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-primary mb-8 overflow-hidden">
-          <img
-            src="/Eu-min.png?height=160&width=160"
-            alt="Israel Ribeiro Junqueira"
-            className="w-full h-full object-cover"
-          />
+    <section className="bg-slate-950 text-white py-16 md:py-24">
+      <div className="container grid gap-10 md:grid-cols-[1fr_auto] md:items-center">
+        <div className="max-w-3xl">
+          <p className="mb-5 text-sm font-medium uppercase tracking-widest text-blue-300">{profile.stack}</p>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{profile.name}</h1>
+          <p className="mt-5 text-2xl font-medium text-slate-100 sm:text-3xl">{profile.headline}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">{profile.intro}</p>
+          <p className="mt-6 flex items-center gap-2 text-sm text-slate-300"><MapPin className="h-4 w-4" aria-hidden="true" />{profile.location} · Disponibilidade para viagens</p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Button asChild size="lg"><Link href="#experiencia">Conheça meu trabalho<ArrowDownRight className="ml-2 h-4 w-4" aria-hidden="true" /></Link></Button>
+            <Button asChild size="lg" variant="outline" className="border-slate-600 bg-transparent text-white hover:bg-slate-800 hover:text-white"><Link href="/curriculo"><FileText className="mr-2 h-4 w-4" aria-hidden="true" />Ver currículo</Link></Button>
+            <Button asChild size="lg" variant="ghost" className="text-slate-200 hover:bg-slate-800 hover:text-white"><a href={profile.github} target="_blank" rel="noreferrer"><Github className="mr-2 h-4 w-4" aria-hidden="true" />GitHub</a></Button>
+          </div>
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-1">Israel Ribeiro Junqueira</h1>
-        <h2 className="text-xl md:text-2xl font-medium text-primary mb-3">Desenvolvedor Backend</h2>
-        <p className="max-w-2xl text-lg mb-8 text-slate-300">
-          Propósito e eficiência em cada linha de código
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="#projetos">
-            <Button size="lg">Ver Projetos</Button>
-          </Link>
-          <Link href="/knowleadge/index.html" target="_blank">
-            <Button variant="outline" size="lg">
-              <GraduationCap className="mr-2 h-5 w-5" />
-              Area do Conhecimento
-            </Button>
-          </Link>
-          <Link href="/curriculo">
-            <Button variant="outline" size="lg">
-              <FileText className="mr-2 h-5 w-5" />
-              Ver Currículo
-            </Button>
-          </Link>
-          <Link href="#contato">
-            <Button variant="outline" size="lg">
-              Entre em Contato
-            </Button>
-          </Link>
-        </div>
-        <Link href="#sobre" className="absolute bottom-8 animate-bounce">
-          <ArrowDown className="h-8 w-8" />
-        </Link>
+        <img src="/Eu-min.png" alt="Israel Ribeiro Junqueira" width={192} height={192} className="row-start-1 h-24 w-24 rounded-full object-cover ring-4 ring-slate-800 md:col-start-2 md:h-48 md:w-48" />
       </div>
     </section>
   )

@@ -22,3 +22,5 @@ Thumbs.db
 
 # Logs
 *.log
+# Application-specific resumes and personal drafts stay local
+/output/

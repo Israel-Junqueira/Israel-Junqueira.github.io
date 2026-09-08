@@ -7,9 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Israel Ribeiro Junqueira | Backend Developer",
+  title: "Israel Ribeiro Junqueira | Sistemas, SQL e AWS",
   description:
-    "Portfolio profissional de Israel Ribeiro Junqueira, Desenvolvedor Backend especializado em .NET Core e tecnologias Microsoft.",
+    "Portfólio de Israel Ribeiro Junqueira: desenvolvimento C#/.NET, SQL Oracle e PostgreSQL, AWS Lambda, integração de sistemas e automação de processos regulatórios.",
 }
 
 export default function RootLayout({

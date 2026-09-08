@@ -24,7 +24,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-medium">E-mail</p>
-                    <a href="mailto:israelribeiro313@gmail.com" className="text-muted-foreground hover:text-primary">
+                    <a href="mailto:israelribeiro313@gmail.com" className="break-all text-muted-foreground hover:text-primary">
                       israelribeiro313@gmail.com
                     </a>
                   </div>
@@ -36,7 +36,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-medium">Telefone</p>
-                    <a href="tel:+5514996983584" className="text-muted-foreground hover:text-primary">
+                    <a href="tel:+5514996983584" className="break-all text-muted-foreground hover:text-primary">
                       (14) 99698-3584
                     </a>
                   </div>
@@ -51,7 +51,7 @@ export function Contact() {
                     <a
                       href="https://www.linkedin.com/in/israel-junqueira/"
                       target="_blank"
-                      className="text-muted-foreground hover:text-primary"
+                      className="break-all text-muted-foreground hover:text-primary"
                       rel="noreferrer"
                     >
                       linkedin.com/in/israel-junqueira
@@ -68,7 +68,7 @@ export function Contact() {
                     <a
                       href="https://github.com/Israel-Junqueira"
                       target="_blank"
-                      className="text-muted-foreground hover:text-primary"
+                      className="break-all text-muted-foreground hover:text-primary"
                       rel="noreferrer"
                     >
                       github.com/Israel-Junqueira

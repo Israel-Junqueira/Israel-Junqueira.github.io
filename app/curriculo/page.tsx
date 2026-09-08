@@ -1,58 +1,24 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Download, ExternalLink } from "lucide-react"
+import { ArrowLeft, Download } from "lucide-react"
+import profile from "@/data/profile.json"
+
+export const metadata: Metadata = { title: "Currículo | Israel Ribeiro Junqueira", description: "Experiência profissional em C#/.NET, SQL, integração de sistemas e automação em AWS." }
 
 export default function CurriculoPage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header da página */}
-      <header className="border-b bg-background/95 backdrop-blur">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar ao Portfólio
-            </Button>
-          </Link>
-
-          <div className="flex items-center gap-2">
-            <Link href="/curriculo.pdf" target="_blank">
-              <Button variant="outline" size="sm">
-                <ExternalLink className="mr-2 h-4 w-4" />
-                Abrir em Nova Aba
-              </Button>
-            </Link>
-            <Link href="/curriculo.pdf" download="Israel_Ribeiro_Curriculo.pdf">
-              <Button size="sm">
-                <Download className="mr-2 h-4 w-4" />
-                Baixar PDF
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      {/* Visualizador do PDF */}
-      <main className="container py-8">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="text-2xl font-bold mb-6 text-center">Currículo - Israel Ribeiro Junqueira</h1>
-
-          {/* Embed do PDF */}
-          <div className="w-full h-[800px] border rounded-lg overflow-hidden shadow-lg">
-            <iframe src="/curriculo.pdf" className="w-full h-full" title="Currículo Israel Ribeiro Junqueira" />
-          </div>
-
-          {/* Fallback para dispositivos que não suportam iframe */}
-          <div className="mt-4 text-center">
-            <p className="text-muted-foreground mb-4">Não consegue visualizar o PDF?</p>
-            <Link href="/curriculo.pdf" target="_blank">
-              <Button>
-                <Download className="mr-2 h-4 w-4" />
-                Baixar Currículo
-              </Button>
-            </Link>
-          </div>
-        </div>
+    <div className="min-h-screen bg-muted/40 print:bg-white print:text-black">
+      <header className="border-b bg-background print:hidden"><div className="container flex flex-wrap items-center justify-between gap-3 py-4"><Button asChild variant="ghost"><Link href="/"><ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />Voltar ao portfólio</Link></Button><Button asChild><a href="/curriculo.pdf" download="Israel_Ribeiro_Junqueira_Curriculo.pdf"><Download className="mr-2 h-4 w-4" aria-hidden="true" />Baixar PDF</a></Button></div></header>
+      <main className="container py-8 md:py-12 print:p-0">
+        <article className="mx-auto max-w-4xl rounded-xl border bg-card p-6 text-card-foreground sm:p-12 print:max-w-none print:rounded-none print:border-0 print:bg-white print:p-0 print:text-black">
+          <header className="border-b pb-6"><h1 className="text-3xl font-bold tracking-tight">{profile.name}</h1><p className="mt-2 text-lg font-medium">{profile.headline} | C#/.NET, SQL e AWS</p><p className="mt-4 text-sm">{profile.location} · {profile.phone} · <a href={`mailto:${profile.email}`} className="break-all underline">{profile.email}</a></p><p className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm"><a className="underline" href={profile.linkedin}>linkedin.com/in/israel-junqueira</a><a className="underline" href={profile.github}>github.com/Israel-Junqueira</a></p></header>
+          <section className="mt-7"><h2 className="text-lg font-bold">Resumo profissional</h2><p className="mt-3 leading-relaxed">{profile.summary}</p></section>
+          <section className="mt-7"><h2 className="text-lg font-bold">Experiência profissional</h2><h3 className="mt-3 font-semibold">{profile.company}</h3><p>{profile.role} | {profile.period}</p><ul className="mt-4 list-disc space-y-3 pl-5 leading-relaxed">{profile.experience.map((item) => <li key={item}>{item}</li>)}</ul></section>
+          <section className="mt-7"><h2 className="text-lg font-bold">Competências técnicas</h2><ul className="mt-3 space-y-2">{profile.skills.map((skill) => <li key={skill.title}><strong>{skill.title}:</strong> {skill.tools}</li>)}</ul></section>
+          <section className="mt-7"><h2 className="text-lg font-bold">Formação acadêmica</h2><div className="mt-3 space-y-3">{profile.education.map((item) => <p key={item.course}><strong>{item.course}</strong><br />{item.institution} | {item.status}</p>)}</div></section>
+          <section className="mt-7"><h2 className="text-lg font-bold">Idiomas e informações complementares</h2><p className="mt-3">{profile.languages}</p><p className="mt-2">{profile.additional}</p></section>
+        </article>
       </main>
     </div>
   )
