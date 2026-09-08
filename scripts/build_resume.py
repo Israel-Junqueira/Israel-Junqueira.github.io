@@ -40,8 +40,8 @@ styles = {
     'name': ParagraphStyle('name', fontName='ResumeBold', fontSize=21, leading=25, textColor=ink, spaceAfter=4),
     'title': ParagraphStyle('title', fontName='ResumeBold', fontSize=10.7, leading=14, textColor=blue, spaceAfter=5),
     'contact': ParagraphStyle('contact', fontName='Resume', fontSize=9, leading=12, textColor=ink),
-    'body': ParagraphStyle('body', fontName='Resume', fontSize=10, leading=13, textColor=ink, spaceAfter=4),
-    'bullet': ParagraphStyle('bullet', fontName='Resume', fontSize=10, leading=13, textColor=ink, leftIndent=10, firstLineIndent=-8, spaceAfter=5),
+    'body': ParagraphStyle('body', fontName='Resume', fontSize=10.3, leading=13.6, textColor=ink, spaceAfter=4),
+    'bullet': ParagraphStyle('bullet', fontName='Resume', fontSize=10.3, leading=13.6, textColor=ink, leftIndent=9, firstLineIndent=-9, spaceAfter=6),
     'section': ParagraphStyle('section', fontName='ResumeBold', fontSize=10.4, leading=14, textColor=blue, spaceBefore=9, spaceAfter=5, keepWithNext=True),
     'job': ParagraphStyle('job', fontName='ResumeBold', fontSize=10, leading=13, textColor=ink, spaceAfter=3, keepWithNext=True),
 }
@@ -63,18 +63,14 @@ def build(targeted=False):
     items += [Paragraph(link(profile['website'], 'israel-junqueira.github.io'), styles['contact'])]
     items += [para('RESUMO PROFISSIONAL', 'section'), para(target_profile['targetSummary'] if targeted else profile['summary'])]
     items += [para('EXPERIÊNCIA PROFISSIONAL', 'section'), para(profile['company'], 'job'), para(profile['role'] + ' | ' + profile['period'], 'job')]
-    items += [para('- ' + item, 'bullet') for item in profile['resumeExperience']]
+    items += [Paragraph('- <b>' + escape(item['area']) + ':</b> ' + escape(clean(item['description'])), styles['bullet']) for item in profile['resumeExperience']]
     items += [para('COMPETÊNCIAS TÉCNICAS', 'section')]
-    skills = [
-        ('Desenvolvimento e dados', 'C#, .NET, APIs REST, Web Services, JSON/XML, Oracle, PL/SQL, PostgreSQL, Entity Framework, modelagem e migrations.'),
-        ('AWS e automação', 'Lambda, SQS, SNS, S3, DynamoDB, SES, IAM, CloudWatch, VPC e Secrets Manager.'),
-        ('Práticas de entrega', 'Git, Pull Requests, Azure DevOps, DEV/HML/PRD, Clean Architecture, DDD, SOLID e documentação técnica.'),
-    ]
-    for title, body in skills:
-        items += [Paragraph('<b>' + escape(title) + ':</b> ' + escape(body), styles['body'])]
+    for skill in profile['resumeSkills']:
+        items += [Paragraph('<b>' + escape(skill['area']) + ':</b> ' + escape(skill['description']), styles['body'])]
     items += [para('FORMAÇÃO ACADÊMICA', 'section')]
-    for edu in profile['education']:
-        items += [Paragraph('<b>' + escape(edu['course']) + '</b> - ' + escape(edu['institution']) + '<br/>' + escape(clean(edu['status'])), styles['body'])]
+    for i, edu in enumerate(profile['education']):
+        separator = '<br/>' if i == 0 else ' | '
+        items += [Paragraph('<b>' + escape(edu['course']) + '</b> - ' + escape(edu['institution']) + separator + escape(clean(edu['status'])), styles['body'])]
     items += [para('IDIOMAS E INFORMAÇÕES COMPLEMENTARES', 'section'), para(profile['languages']), para(profile['additional'])]
     doc.build(items)
     print(destination)

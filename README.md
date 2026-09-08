@@ -12,7 +12,8 @@ npm run dev
 Os dados profissionais, as experiências, a formação e os estudos de caso estão em `data/profile.json`. Os componentes do site e o gerador do currículo usam esse arquivo.
 
 - `experience`: descrição completa exibida no site.
-- `resumeExperience`: versão resumida para o PDF.
+- `resumeExperience`: tópicos com `area` e `description`, usados no PDF, na página do currículo e na seção de experiência.
+- `resumeSkills`: competências com `area` e `description`, compartilhadas pelo PDF e pela página do currículo.
 - `summary`: apresentação geral.
 - Candidaturas específicas usam um JSON local em `output/candidatura/target.json`, com `target`, `targetSummary` e `filename`. Essa pasta não entra no Git.
 

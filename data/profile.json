@@ -9,19 +9,18 @@
   "github": "https://github.com/Israel-Junqueira",
   "linkedin": "https://www.linkedin.com/in/israel-junqueira/",
   "website": "https://israel-junqueira.github.io",
-  "summary": "Analista de Desenvolvimento de Sistemas com atuação na Barracred desde 2023. Desenvolvo integrações com C#/.NET, SQL Oracle e PostgreSQL e automações em AWS para processos regulatórios. Conduzi a arquitetura técnica e a implementação de soluções SCR 3040 e 3044 em produção, com foco em consistência de dados, rastreabilidade e tratamento de falhas.",
-  "intro": "Conecto sistemas, automatizo processos e transformo regras de negócio em software. Minha experiência reúne integrações de dados e soluções regulatórias em produção para cooperativa de crédito.",
+  "summary": "Analista de Desenvolvimento de Sistemas com atuação desde 2023 em integração de sistemas, bancos de dados e automação de processos. Experiência com C#/.NET, SQL Oracle e PostgreSQL e AWS. Responsável pela arquitetura e implementação de soluções em produção para obrigações com o Banco Central, com foco em consistência de dados e rastreabilidade.",
+  "intro": "Desenvolvo integrações de dados e automações que apoiam a operação de uma cooperativa de crédito. Traduzo requisitos de negócio em sistemas em produção, com atenção à qualidade dos dados e à investigação de falhas.",
   "company": "Barracred — Cooperativa de Crédito",
   "role": "Analista de Desenvolvimento de Sistemas",
   "period": "08/2023 – atual",
   "experience": [
-    "Conduzi a arquitetura técnica e implementei as soluções SCR 3040 e 3044 em produção, traduzindo manuais do Banco Central em regras de negócio, integrações e rotinas de processamento.",
-    "Desenvolvi sincronização entre Oracle e PostgreSQL com APIs, SNS/SQS e processamento assíncrono, incluindo funções PL/SQL, triggers, modelagem e migrations do Entity Framework.",
-    "Corrigi a sincronização de históricos de vínculo empregatício e restrições de cooperados, adequando payloads e consumidores para preservar histórico e considerar a vigência dos registros.",
-    "Automatizei a consulta de status e o download de retornos do 3044 via API STA, com classificação de respostas, tratamento de rejeições, armazenamento no S3 e logs para rastreabilidade.",
-    "Estruturei o processamento mensal do 3040 com persistência no DynamoDB, geração e validação de XML, mensageria e mecanismos de idempotência e reprocessamento.",
-    "Desenvolvo e configuro rotinas AWS Lambda acionadas por SQS para registro de logs em DynamoDB, envio de e-mails via SES e processamento de arquivos no S3. Configuro permissões IAM, monitoramento no CloudWatch e parâmetros de execução.",
-    "Acompanho pipelines e deploys no Azure DevOps em DEV, HML e PRD, validando logs e integrações junto à operação; apoio análise de falhas e reversões. Produzo documentação técnica das implementações."
+    "Desenvolvi integrações entre Oracle e PostgreSQL com C#/.NET, SQL e mensageria. Corrigi divergências na sincronização de históricos de vínculos e restrições, preservando as informações e a vigência dos registros.",
+    "Projetei e implementei sistemas para preparar e validar informações obrigatórias ao Banco Central, traduzindo manuais regulatórios em regras de negócio e rotinas rastreáveis. As soluções estão em produção.",
+    "Automatizei a consulta de status e o download de respostas do Banco Central, substituindo verificações manuais e organizando arquivos rejeitados para análise pela operação.",
+    "Desenvolvo e configuro funções AWS Lambda para registro de logs, envio de e-mails e processamento de arquivos, com filas SQS, DynamoDB, SES e S3. Configuro permissões de acesso e monitoramento no CloudWatch.",
+    "Acompanho pipelines e publicação de versões no Azure DevOps em desenvolvimento, homologação e produção, junto à operação. Valido logs e integrações, investigo falhas e apoio a reversão de versões.",
+    "Documento regras de negócio, decisões de implementação e fluxos de processamento para apoiar a manutenção e a evolução dos sistemas."
   ],
   "skills": [
     {
@@ -37,17 +36,17 @@
     {
       "title": "Integração e sincronização",
       "tools": "APIs · SNS/SQS · processamento assíncrono",
-      "description": "Sincronização entre bancos, transformação de payloads e tratamento de histórico e vigência para manter os dados coerentes entre sistemas."
+      "description": "Integração de bancos e aplicações por APIs e filas de mensagens. Tratamento de histórico e vigência para manter as informações consistentes entre sistemas."
     },
     {
       "title": "AWS e automação",
       "tools": "AWS Lambda · SQS · SNS · S3 · DynamoDB · SES · IAM · CloudWatch",
-      "description": "Funções orientadas a eventos, gatilhos SQS, permissões IAM por função, acesso em VPC e Secrets Manager. Configuração de memória e timeout, monitoramento de APIs e alertas de falhas."
+      "description": "Automação de logs, e-mails e processamento de arquivos. Configuração de gatilhos, permissões de acesso, memória e tempo de execução das funções; monitoramento de APIs e alertas de falhas."
     },
     {
       "title": "Entrega e operação",
-      "tools": "Git · Pull Requests · Azure DevOps · DEV/HML/PRD",
-      "description": "Acompanhamento de pipelines e deploys junto à operação. Validação de logs e integrações, análise de falhas e apoio à reversão de versões."
+      "tools": "Git · Pull Requests · Azure DevOps",
+      "description": "Acompanhamento de publicações nos ambientes de desenvolvimento, homologação e produção junto à operação. Validação de logs e integrações, análise de falhas e apoio à reversão de versões."
     },
     {
       "title": "Regras e rastreabilidade",
@@ -58,11 +57,11 @@
   "cases": [
     {
       "id": "01",
-      "title": "Sincronização Oracle → PostgreSQL",
+      "title": "Dados consistentes entre sistemas",
       "category": "Integração de dados",
-      "context": "A origem armazenava histórico e vigência, enquanto o destino mantinha apenas o estado atual de parte dos dados.",
-      "action": "Ajustei relacionamentos, funções e triggers Oracle, ampliei os payloads e a modelagem no PostgreSQL e adaptei o consumidor assíncrono.",
-      "result": "Sincronização corrigida para preservar os dados históricos necessários e considerar o cooperado vigente.",
+      "context": "Históricos de vínculos empregatícios e restrições de cooperados não eram preservados de forma equivalente nos dois bancos de dados.",
+      "action": "Identifiquei as diferenças e adaptei a integração para transmitir e armazenar o histórico necessário, considerando quais registros estavam vigentes.",
+      "result": "Correção das divergências de sincronização, permitindo que o sistema de destino utilizasse o histórico e a vigência dos dados.",
       "details": "SQL e PL/SQL, geração de JSON, APIs, SNS/SQS, migrations do Entity Framework, tabelas, chaves e índices.",
       "tags": [
         "Oracle",
@@ -73,12 +72,12 @@
     },
     {
       "id": "02",
-      "title": "SCR 3040: da regra ao processamento",
+      "title": "Informações obrigatórias ao Banco Central",
       "category": "Sistema regulatório · em produção",
-      "context": "A geração do documento regulatório exigia consolidar dados de diferentes serviços e manter uma trilha consistente por competência mensal.",
-      "action": "Conduzi a arquitetura e implementei o fluxo a partir dos manuais do Banco Central, integrando sincronização, persistência normativa, geração de XML e validação.",
-      "result": "Solução em produção com rastreabilidade por etapa, artefatos validados e mecanismos de reprocessamento e idempotência.",
-      "details": "C#/.NET, Oracle e PostgreSQL, DynamoDB com Single Table Design e índices de consulta, SNS/SQS, armazenamento em S3 e validação com ferramenta oficial.",
+      "context": "A cooperativa precisava consolidar informações de crédito de diferentes sistemas para gerar e validar arquivos exigidos pelo Banco Central.",
+      "action": "Conduzi a arquitetura e a implementação da solução, traduzindo os manuais regulatórios em regras de negócio, preparação de dados e validação dos arquivos.",
+      "result": "Solução em produção com rastreamento das etapas e possibilidade de repetir o processamento de forma controlada, evitando duplicidades.",
+      "details": "Documento 3040 do Sistema de Informações de Créditos (SCR). Implementação com C#/.NET, Oracle, PostgreSQL, DynamoDB, SNS/SQS e S3; geração de XML, validação com ferramenta oficial, idempotência e reprocessamento por mês de referência.",
       "tags": [
         "C#/.NET",
         "DynamoDB",
@@ -88,12 +87,12 @@
     },
     {
       "id": "03",
-      "title": "3044: automação dos retornos",
+      "title": "Acompanhamento automático de arquivos",
       "category": "Integração e automação · em produção",
       "context": "A consulta de status e o download dos retornos de arquivos enviados ao Banco Central dependiam de verificações manuais.",
-      "action": "Implementei a integração com a API STA para consultar status, baixar e classificar respostas, obter detalhes de rejeições e organizar os arquivos no S3.",
-      "result": "Monitoramento e download automatizados, com respostas organizadas e logs que apoiam a investigação de rejeições.",
-      "details": "API externa, processamento em background com Hangfire, armazenamento em AWS S3 e rastreamento de status e arquivos de resposta.",
+      "action": "Integrei a aplicação ao serviço de transferência de arquivos do Banco Central para consultar status, baixar respostas e separar os arquivos rejeitados com os detalhes do erro.",
+      "result": "Consulta e download de respostas automatizados, substituindo verificações manuais e reunindo informações para a análise de rejeições pela operação.",
+      "details": "Retornos do documento regulatório 3044. Integração com a API do Sistema de Transferência de Arquivos (STA), processamento em background com Hangfire, armazenamento em S3 e logs de status e respostas.",
       "tags": [
         "APIs",
         "Hangfire",
@@ -127,10 +126,43 @@
   "languages": "Inglês: leitura de documentação técnica com auxílio de ferramentas de tradução e IA.",
   "additional": "Conhecimentos básicos de Word, Excel, PowerPoint e Windows. Disponibilidade para viagens ocasionais.",
   "resumeExperience": [
-    "Conduzi a arquitetura técnica e implementei SCR 3040 e 3044 em produção, traduzindo manuais do Banco Central em regras de negócio, geração e validação de XML e rotinas rastreáveis.",
-    "Desenvolvi integrações Oracle-PostgreSQL via APIs e SNS/SQS, com PL/SQL, funções, triggers e migrations. Corrigi a sincronização de históricos de vínculos e restrições, respeitando a vigência dos registros.",
-    "Automatizei consultas e downloads de retornos do 3044 pela API STA, com classificação de respostas, tratamento de rejeições e armazenamento em S3. Estruturei o 3040 com DynamoDB, idempotência e reprocessamento.",
-    "Desenvolvo e configuro AWS Lambda com gatilhos SQS, DynamoDB, SES e S3; atuo com IAM por função, VPC, Secrets Manager, memória, timeout e monitoramento de APIs no CloudWatch.",
-    "Acompanho PRs, pipelines e deploys no Azure DevOps em DEV, HML e PRD junto à operação; valido logs e integrações, investigo falhas e apoio reversões. Produzo documentação técnica das implementações."
+    {
+      "area": "Integração de dados",
+      "description": "Desenvolvi integrações entre Oracle e PostgreSQL com C#/.NET, SQL e mensageria. Corrigi divergências na sincronização de históricos de vínculos e restrições, preservando as informações e a vigência dos registros."
+    },
+    {
+      "area": "Requisitos e desenvolvimento",
+      "description": "Projetei e implementei sistemas para preparar e validar informações obrigatórias ao Banco Central, traduzindo manuais regulatórios em regras de negócio e rotinas rastreáveis. As soluções estão em produção."
+    },
+    {
+      "area": "Automação de processos",
+      "description": "Automatizei a consulta de status e o download de respostas do Banco Central, substituindo verificações manuais e organizando arquivos rejeitados para análise pela operação."
+    },
+    {
+      "area": "Aplicações em nuvem",
+      "description": "Desenvolvo e configuro funções AWS Lambda para registro de logs, envio de e-mails e processamento de arquivos, com filas SQS, DynamoDB, SES e S3. Configuro permissões de acesso e monitoramento no CloudWatch."
+    },
+    {
+      "area": "Implantação e suporte",
+      "description": "Acompanho pipelines e publicação de versões no Azure DevOps em desenvolvimento, homologação e produção, junto à operação. Valido logs e integrações, investigo falhas e apoio a reversão de versões."
+    },
+    {
+      "area": "Documentação técnica",
+      "description": "Documento regras de negócio, decisões de implementação e fluxos de processamento para apoiar a manutenção e a evolução dos sistemas."
+    }
+  ],
+  "resumeSkills": [
+    {
+      "area": "Programação e integração",
+      "description": "C#, .NET, APIs REST, Web Services, JSON, XML e processamento assíncrono."
+    },
+    {
+      "area": "Bancos de dados",
+      "description": "SQL, Oracle, PL/SQL, PostgreSQL, consultas, joins, funções, procedures, triggers, índices e Entity Framework."
+    },
+    {
+      "area": "Nuvem e entrega",
+      "description": "AWS Lambda, SQS, SNS, S3, DynamoDB, SES, IAM, CloudWatch, Git e Azure DevOps."
+    }
   ]
 }
