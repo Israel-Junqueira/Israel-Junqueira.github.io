@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, FileText } from "lucide-react"
 
-const links = [{ href: "#sobre", label: "Sobre" }, { href: "#experiencia", label: "Experiência" }, { href: "#entregas", label: "Entregas" }, { href: "#habilidades", label: "Competências" }, { href: "#formacao", label: "Formação" }, { href: "#contato", label: "Contato" }]
+const links = [{ href: "#sites", label: "Meus sites" }, { href: "#sobre", label: "Sobre" }, { href: "#experiencia", label: "Experiência" }, { href: "#entregas", label: "Entregas" }, { href: "#habilidades", label: "Competências" }, { href: "#formacao", label: "Formação" }, { href: "#contato", label: "Contato" }]
 
 export function Header() {
   const [open, setOpen] = useState(false)
