@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Meeting Copilot · Saiba o que dizer na próxima frase</title>
+<meta name="description" content="Copiloto de reunião para Windows: transcreve a conversa ao vivo, entende o seu contexto e sugere a próxima fala em tempo real. Invisível no compartilhamento de tela. 10 minutos grátis por dia." />
+<meta property="og:title" content="Meeting Copilot · Saiba o que dizer na próxima frase" />
+<meta property="og:description" content="Transcrição ao vivo + sugestões de resposta em tempo real, com base no seu contexto. Invisível no Teams, Zoom e Meet." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0b0d13" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0d13'/%3E%3Cpath d='M18 40V24l14 10 14-10v16' fill='none' stroke='%236ea8fe' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='48' cy='16' r='5' fill='%2357d9a3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0b0d13; --bg2:#10131b; --card:rgba(255,255,255,.035); --card2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --text:#eef1f7; --muted:#8e97a8; --dim:#5d6676;
+  --blue:#6ea8fe; --green:#57d9a3; --warn:#ffb454; --pink:#ff7ab6;
+  --radius:18px; --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+/* fundo */
+.bg-grid{position:fixed;inset:0;z-index:-2;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%);opacity:.35}
+.bg-glow{position:fixed;z-index:-1;width:900px;height:900px;border-radius:50%;filter:blur(120px);opacity:.18;pointer-events:none}
+.g1{background:var(--blue);top:-450px;left:-200px}
+.g2{background:var(--green);top:-500px;right:-300px;opacity:.12}
+#spot{position:fixed;z-index:-1;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(110,168,254,.10),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);left:-999px;top:-999px;transition:opacity .3s}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(11,13,19,.65);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;gap:28px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#1a2233,#0f141f);border:1px solid var(--line2);display:grid;place-items:center;position:relative}
+.logo::after{content:"";position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;border-radius:12px;padding:13px 20px;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--text);color:#0b0d13}
+.btn-primary:hover{box-shadow:0 0 0 4px rgba(238,241,247,.12),0 10px 40px -10px rgba(110,168,254,.6)}
+.btn-ghost{border-color:var(--line2);color:var(--text);background:var(--card)}
+.btn-ghost:hover{background:var(--card2)}
+.btn-sm{padding:9px 14px;font-size:14px;border-radius:10px}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--line2);color:var(--text);border-radius:10px;width:40px;height:40px;font-size:18px;cursor:pointer}
+
+/* hero */
+.hero{padding:80px 0 40px;display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);border:1px solid var(--line2);background:var(--card);padding:6px 12px 6px 8px;border-radius:999px}
+.pill b{color:#07210f;background:var(--green);font-size:11px;padding:2px 8px;border-radius:999px;font-weight:800}
+h1{font-size:clamp(40px,4.6vw,58px);line-height:1.02;letter-spacing:-.045em;font-weight:800;margin:22px 0 20px}
+.grad{background:linear-gradient(90deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--muted);max-width:540px}
+.cta-row{display:flex;gap:12px;margin:30px 0 16px;flex-wrap:wrap}
+.trust{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--dim)}
+.trust span{display:flex;align-items:center;gap:6px}
+.trust i{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+
+/* mockup do app */
+.stage{position:relative;perspective:1400px}
+.app{position:relative;border-radius:20px;border:1px solid var(--line2);background:linear-gradient(180deg,rgba(22,25,34,.92),rgba(14,16,23,.96));box-shadow:0 40px 120px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.03) inset;overflow:hidden;transform:rotateY(-6deg) rotateX(3deg);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.stage:hover .app{transform:rotateY(0) rotateX(0)}
+.app-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.rec{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.rec::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff5d5d;box-shadow:0 0 0 0 rgba(255,93,93,.6);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,93,93,0)}100%{box-shadow:0 0 0 0 rgba(255,93,93,0)}}
+.app-bar .t{margin-left:auto;font-size:12px;color:var(--dim)}
+.app-body{display:grid;grid-template-columns:1fr;gap:0}
+.tr{padding:14px 16px;height:212px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;mask-image:linear-gradient(transparent,#000 30%)}
+.ln{display:flex;gap:10px;font-size:14px;line-height:1.45;animation:in .35s ease both}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.who{flex:none;font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 7px;border-radius:6px;height:fit-content;margin-top:2px}
+.who.them{color:#0b1220;background:var(--blue)}
+.who.me{color:#07210f;background:var(--green)}
+.caret{display:inline-block;width:2px;height:15px;background:var(--text);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sug{margin:0 12px 12px;border-radius:14px;border:1px solid rgba(110,168,254,.35);background:linear-gradient(180deg,rgba(110,168,254,.10),rgba(110,168,254,.03));padding:13px 14px;min-height:118px;position:relative}
+.sug-h{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px}
+.sug-h .dots{display:inline-flex;gap:3px;margin-left:4px}
+.sug-h .dots i{width:4px;height:4px;border-radius:50%;background:var(--blue);animation:bounce 1s infinite}
+.sug-h .dots i:nth-child(2){animation-delay:.15s}.sug-h .dots i:nth-child(3){animation-delay:.3s}
+@keyframes bounce{40%{transform:translateY(-3px);opacity:.4}}
+.sug p{font-size:14.5px;line-height:1.55}
+.sug p b{color:var(--green);font-weight:700}
+.chip-ctx{position:absolute;right:12px;top:11px;font-size:10px;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.float{position:absolute;border-radius:14px;border:1px solid var(--line2);background:rgba(16,19,27,.9);backdrop-filter:blur(10px);padding:10px 12px;font-size:12px;box-shadow:0 20px 50px -20px rgba(0,0,0,.8);animation:float 6s ease-in-out infinite}
+.float b{display:block;font-size:13px}
+.f1{left:-28px;bottom:-26px}
+.f2{right:18px;top:-58px;animation-delay:-3s}
+.f1 small,.f2 small{color:var(--muted)}
+@keyframes float{50%{transform:translateY(-8px)}}
+
+/* faixa */
+.strip{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:34px 0 10px;color:var(--dim);font-size:14px}
+.strip .tag{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:7px 14px;color:var(--muted);font-weight:600}
+
+/* secoes */
+section{padding:96px 0}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-.035em;font-weight:800;margin:12px 0 14px}
+.sub{color:var(--muted);font-size:17px;max-width:620px}
+.center{text-align:center}.center .sub{margin:0 auto}
+
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;counter-reset:s}
+.step{position:relative;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:26px;overflow:hidden}
+.step::before{counter-increment:s;content:"0" counter(s);font:500 13px "JetBrains Mono",monospace;color:var(--dim)}
+.step h3{font-size:19px;margin:14px 0 8px;letter-spacing:-.02em}
+.step p{color:var(--muted);font-size:15px}
+.step .ic{position:absolute;right:20px;top:20px;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--card2);border:1px solid var(--line)}
+
+/* recursos (bento) */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:48px}
+.cell{position:relative;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:24px;overflow:hidden;transition:border-color .3s,transform .3s}
+.cell:hover{border-color:var(--line2);transform:translateY(-2px)}
+.cell::after{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(110,168,254,.08),transparent 40%);opacity:0;transition:opacity .3s;pointer-events:none}
+.cell:hover::after{opacity:1}
+.cell h3{font-size:18px;letter-spacing:-.02em;margin:12px 0 6px}
+.cell p{color:var(--muted);font-size:14.5px}
+.c-a{grid-column:span 4}.c-b{grid-column:span 2}.c-c{grid-column:span 2}.c-d{grid-column:span 2}.c-e{grid-column:span 2}.c-f{grid-column:span 3}.c-g{grid-column:span 3}
+.ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line2);background:var(--card2)}
+.wave{display:flex;align-items:center;gap:3px;height:56px;margin-top:18px}
+.wave i{flex:1;border-radius:3px;background:linear-gradient(var(--blue),var(--green));animation:wv 1.2s ease-in-out infinite;height:20%}
+@keyframes wv{50%{height:100%}}
+.split{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.split span{font-size:12px;padding:6px 10px;border-radius:8px;border:1px solid var(--line)}
+.kbd{display:inline-flex;gap:4px;margin-top:14px;flex-wrap:wrap}
+.kbd kbd{font:500 12px "JetBrains Mono",monospace;border:1px solid var(--line2);border-bottom-width:3px;border-radius:7px;padding:4px 8px;background:var(--bg2);color:var(--text)}
+
+/* invisivel */
+.inv{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.switch{display:inline-flex;border:1px solid var(--line2);border-radius:12px;padding:4px;background:var(--card);margin-top:26px}
+.switch button{border:0;background:none;color:var(--muted);font:600 14px Inter,sans-serif;padding:9px 16px;border-radius:9px;cursor:pointer;transition:.2s}
+.switch button.on{background:var(--text);color:#0b0d13}
+.screen{position:relative;aspect-ratio:16/10;border-radius:18px;border:1px solid var(--line2);background:#0e1119;overflow:hidden}
+.screen .topb{height:34px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px}
+.screen .topb i{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.screen .topb span{margin-left:auto;font-size:11px;color:var(--muted)}
+.slide{position:absolute;inset:34px 0 0;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.slide .blk{border-radius:10px;background:var(--card2)}
+.slide .blk.h{grid-column:span 2;height:30px;width:60%}
+.slide .blk.t{height:100%}
+.overlay{position:absolute;right:16px;top:50px;width:44%;border-radius:14px;border:1px solid rgba(87,217,163,.45);background:rgba(16,22,24,.92);padding:12px;font-size:12px;transition:opacity .45s,transform .45s,filter .45s;box-shadow:0 20px 60px -20px rgba(0,0,0,.9)}
+.overlay b{color:var(--green);font-size:10px;letter-spacing:.08em}
+.overlay p{margin-top:6px;line-height:1.45}
+.screen.them .overlay{opacity:0;transform:scale(.96);filter:blur(4px)}
+.badge-share{position:absolute;left:14px;bottom:14px;font-size:11px;padding:5px 10px;border-radius:999px;background:rgba(255,93,93,.15);color:#ff8a8a;border:1px solid rgba(255,93,93,.35);opacity:0;transition:.3s}
+.screen.them .badge-share{opacity:1}
+.note{font-size:13px;color:var(--dim);margin-top:16px}
+
+/* precos */
+.calc{margin:40px auto 0;max-width:720px;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:22px 24px}
+.calc-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.calc label{font-weight:600}
+.calc output{font:500 15px "JetBrains Mono",monospace;color:var(--blue)}
+input[type=range]{width:100%;margin:16px 0 8px;accent-color:var(--blue)}
+.calc .rec-out{color:var(--muted);font-size:15px}
+.calc .rec-out b{color:var(--text)}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.plan{position:relative;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;transition:border-color .3s,transform .3s,box-shadow .3s}
+.plan.hl{border-color:rgba(87,217,163,.6);box-shadow:0 0 0 1px rgba(87,217,163,.25),0 20px 60px -30px rgba(87,217,163,.6);transform:translateY(-4px)}
+.plan .tag{position:absolute;top:-11px;left:24px;font-size:11px;font-weight:800;letter-spacing:.04em;background:var(--green);color:#07210f;padding:3px 10px;border-radius:999px}
+.plan h3{font-size:16px;color:var(--muted);font-weight:600}
+.price{font-size:40px;font-weight:800;letter-spacing:-.04em;margin:8px 0 2px}
+.price small{font-size:16px;color:var(--muted);font-weight:600;letter-spacing:0}
+.plan .per{font-size:13px;color:var(--dim);min-height:20px}
+.plan ul{list-style:none;margin:18px 0 22px;display:grid;gap:9px;font-size:14px;color:var(--muted)}
+.plan li{display:flex;gap:9px}
+.plan li::before{content:"✓";color:var(--green);font-weight:800}
+.plan .btn{margin-top:auto;justify-content:center}
+.fine{margin-top:22px;font-size:14px;color:var(--dim);text-align:center}
+.fine b{color:var(--muted)}
+
+/* video */
+.video{margin-top:44px;position:relative;aspect-ratio:16/9;border-radius:22px;border:1px solid var(--line2);overflow:hidden;background:radial-gradient(circle at 30% 20%,rgba(110,168,254,.18),transparent 50%),radial-gradient(circle at 80% 80%,rgba(87,217,163,.12),transparent 50%),var(--bg2);display:grid;place-items:center}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{width:84px;height:84px;border-radius:50%;background:var(--text);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(238,241,247,.06),0 0 0 26px rgba(238,241,247,.03)}
+.video p{position:absolute;bottom:22px;color:var(--muted);font-size:14px}
+
+/* faq */
+.faq{max-width:780px;margin:44px auto 0;display:grid;gap:10px}
+details{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:0 20px;transition:border-color .2s}
+details[open]{border-color:var(--line2)}
+summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--muted);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 18px;font-size:15px}
+details a{color:var(--blue)}
+
+/* cta final */
+.final{position:relative;border-radius:28px;border:1px solid var(--line2);padding:64px 28px;text-align:center;overflow:hidden;background:radial-gradient(600px circle at 50% 0%,rgba(110,168,254,.16),transparent 60%),var(--bg2)}
+.final h2{max-width:720px;margin:12px auto 14px}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--dim);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a:hover{color:var(--text)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.show{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .hero,.inv{grid-template-columns:1fr;gap:44px}
+  .hero{padding-top:48px}
+  .app{transform:none}
+  .f1{left:-8px}.f2{right:-6px}
+  .steps{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .c-a,.c-f,.c-g{grid-column:span 2}.c-b,.c-c,.c-d,.c-e{grid-column:span 1}
+  .plans{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav-links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:rgba(11,13,19,.97);border-bottom:1px solid var(--line);padding:8px 20px 16px}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;font-size:16px}
+  .menu-btn{display:block}
+  .nav .btn-sm{display:none}
+  section{padding:72px 0}
+  .bento{grid-template-columns:1fr}
+  .c-a,.c-b,.c-c,.c-d,.c-e,.c-f,.c-g{grid-column:span 1}
+  .plans{grid-template-columns:1fr}
+  .plan.hl{transform:none}
+  .f1,.f2{display:none}
+  .slide{padding:16px;gap:10px}
+  .overlay{width:58%;font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div><div class="bg-glow g1"></div><div class="bg-glow g2"></div><div id="spot"></div>
+
+<nav id="nav">
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6ea8fe" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17V7l7 5 7-5v10"/></svg></span>Meeting Copilot</a>
+    <div class="nav-links" id="links">
+      <a href="#como">Como funciona</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#invisivel">Modo invisível</a>
+      <a href="#precos">Preços</a>
+      <a href="#faq">Dúvidas</a>
+    </div>
+    <a class="btn btn-primary btn-sm dl" href="#">Baixar grátis</a>
+    <button class="menu-btn" id="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <span class="pill rv"><b>NOVO</b> Transcrição ao vivo em ~1 segundo</span>
+      <h1 class="rv">Saiba o que dizer<br/>na <span class="grad">próxima&nbsp;frase.</span></h1>
+      <p class="lead rv">O Meeting Copilot ouve a sua reunião, transcreve tudo ao vivo e sugere a melhor resposta na hora, com base no contexto que <em>você</em> escolhe. E ninguém na chamada vê.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-primary dl" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z"/></svg>Baixar para Windows</a>
+        <a class="btn btn-ghost" href="#video">▶ Ver em ação</a>
+      </div>
+      <div class="trust rv"><span><i></i>10 min grátis todo dia</span><span><i></i>Sem cadastro</span><span><i></i>Funciona no Teams, Zoom e Meet</span></div>
+    </div>
+
+    <div class="stage rv">
+      <div class="app" id="app">
+        <div class="app-bar"><span class="rec">Ouvindo</span><span class="t mono" id="clock">00:00</span></div>
+        <div class="tr" id="tr"></div>
+        <div class="sug">
+          <span class="chip-ctx" id="ctxchip">contexto: proposta-acme.md</span>
+          <div class="sug-h">⚡ Sugestão <span class="dots" id="dots"><i></i><i></i><i></i></span></div>
+          <p id="sug"></p>
+        </div>
+      </div>
+      <div class="float f1"><b>👻 Invisível</b><small>fora do compartilhamento</small></div>
+      <div class="float f2"><b>Eu · Eles</b><small>vozes separadas</small></div>
+    </div>
+  </header>
+
+  <div class="strip rv">Funciona com qualquer app de reunião:
+    <span class="tag">Microsoft Teams</span><span class="tag">Zoom</span><span class="tag">Google Meet</span><span class="tag">Slack</span><span class="tag">Discord</span>
+  </div>
+</div>
+
+<section id="como">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Pronto em 3 passos</h2>
+      <p class="sub">Sem conta, sem configuração complicada. Você usa a sua própria chave da OpenAI e só paga pelo tempo que usar.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="ic">⬇️</div><h3>Instale e cole sua chave</h3><p>Baixe o instalador para Windows, abra as configurações e cole a sua chave da OpenAI. Ela fica só no seu computador.</p></div>
+      <div class="step rv"><div class="ic">📄</div><h3>Anexe o seu contexto</h3><p>Um arquivo <span class="mono">.md</span> com o que importa: proposta, produto, perfil do cliente, roteiro de entrevista. É dali que vêm as respostas.</p></div>
+      <div class="step rv"><div class="ic">⚡</div><h3>Inicie a sessão</h3><p>Entre na reunião e clique em <b>Iniciar</b>. A transcrição aparece ao vivo e a próxima fala é sugerida na hora.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="recursos">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Recursos</span>
+      <h2>Feito para reuniões de verdade</h2>
+      <p class="sub">Vendas, entrevistas, alinhamentos, atendimento. Tudo o que você precisa para não travar na hora H.</p>
+    </div>
+    <div class="bento">
+      <div class="cell c-a rv">
+        <div class="ico">🎙️</div>
+        <h3>Transcrição ao vivo, palavra por palavra</h3>
+        <p>Usa a API em tempo real da OpenAI: o texto aparece enquanto a pessoa fala, com cerca de 1 segundo de atraso.</p>
+        <div class="wave" aria-hidden="true" id="wave"></div>
+      </div>
+      <div class="cell c-b rv">
+        <div class="ico">👥</div>
+        <h3>Eu e Eles separados</h3>
+        <p>Capta o seu microfone e o áudio do computador ao mesmo tempo, e mostra quem disse o quê.</p>
+        <div class="split"><span style="color:var(--green)">EU · microfone</span><span style="color:var(--blue)">ELES · sistema</span></div>
+      </div>
+      <div class="cell c-c rv">
+        <div class="ico">🧠</div>
+        <h3>Respostas com o seu contexto</h3>
+        <p>As sugestões usam o arquivo que você anexou: seus números, argumentos e dados.</p>
+      </div>
+      <div class="cell c-d rv">
+        <div class="ico">👻</div>
+        <h3>Invisível na tela</h3>
+        <p>Não aparece quando você compartilha a tela, nem em prints e gravações.</p>
+      </div>
+      <div class="cell c-e rv">
+        <div class="ico">⌨️</div>
+        <h3>Atalhos rápidos</h3>
+        <p>Peça uma resposta, fixe uma sugestão ou esconda tudo sem tirar a mão do teclado.</p>
+        <div class="kbd"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Space</kbd></div>
+      </div>
+      <div class="cell c-f rv">
+        <div class="ico">🔒</div>
+        <h3>Privado por padrão</h3>
+        <p>Não existe servidor nosso no meio: o áudio vai direto do seu computador para a OpenAI, com a sua chave. Nada fica guardado com a gente.</p>
+      </div>
+      <div class="cell c-g rv">
+        <div class="ico">📝</div>
+        <h3>Resumo no final</h3>
+        <p>Ao terminar, salve a sessão com a transcrição completa e um resumo dos pontos principais, pronto para mandar por e-mail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="invisivel">
+  <div class="wrap inv">
+    <div class="rv">
+      <span class="eyebrow">Modo invisível</span>
+      <h2>Você vê. Eles não.</h2>
+      <p class="sub">O Meeting Copilot fica fora do compartilhamento de tela. Você pode apresentar slides, mostrar sua tela inteira ou ser gravado, e as sugestões continuam só para você.</p>
+      <div class="switch" role="tablist" aria-label="Alternar visão">
+        <button class="on" data-view="me" role="tab" aria-selected="true">Sua tela</button>
+        <button data-view="them" role="tab" aria-selected="false">O que eles veem</button>
+      </div>
+      <p class="note">Funciona no Windows 10 (versão 2004 ou mais nova) e no Windows 11.</p>
+    </div>
+    <div class="screen rv" id="screen">
+      <div class="topb"><i></i><i></i><i></i><span>Apresentação.pptx</span></div>
+      <div class="slide"><div class="blk h"></div><div class="blk t"></div><div class="blk t"></div></div>
+      <div class="overlay"><b>⚡ SUGESTÃO</b><p>"Entendo a preocupação com o prazo. Na proposta, a implantação leva 3 semanas, e a primeira entrega sai em 7 dias."</p></div>
+      <span class="badge-share">● Compartilhando tela</span>
+    </div>
+  </div>
+</section>
+
+<section id="precos">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Preços</span>
+      <h2>Pague só quando precisar</h2>
+      <p class="sub">Sem assinatura e sem renovação automática. Teste grátis todo dia e compre um passe quando tiver uma reunião importante.</p>
+    </div>
+
+    <div class="calc rv">
+      <div class="calc-row"><label for="hrs">Quantas horas de reunião você tem na semana?</label><output id="hrsOut">3 h</output></div>
+      <input type="range" id="hrs" min="0" max="20" step="1" value="3" />
+      <p class="rec-out" id="recOut"></p>
+    </div>
+
+    <div class="plans">
+      <div class="plan rv" data-plan="free">
+        <h3>Grátis</h3>
+        <div class="price">R$ 0</div>
+        <div class="per">para sempre</div>
+        <ul><li>10 minutos por dia</li><li>Todos os recursos</li><li>O saldo renova todo dia</li></ul>
+        <a class="btn btn-ghost dl" href="#">Baixar grátis</a>
+      </div>
+      <div class="plan rv" data-plan="hora">
+        <h3>3 horas</h3>
+        <div class="price">R$ 5<small>,90</small></div>
+        <div class="per">para uma reunião importante</div>
+        <ul><li>Uso ilimitado por 3h</li><li>Pix ou cartão</li><li>Liberado na hora</li></ul>
+        <a class="btn btn-ghost dl" href="#">Começar</a>
+      </div>
+      <div class="plan rv" data-plan="dia">
+        <span class="tag">MAIS ESCOLHIDO</span>
+        <h3>Dia inteiro</h3>
+        <div class="price">R$ 9<small>,90</small></div>
+        <div class="per">24 horas sem limite</div>
+        <ul><li>Uso ilimitado por 24h</li><li>Pix ou cartão</li><li>Liberado na hora</li></ul>
+        <a class="btn btn-primary dl" href="#">Começar</a>
+      </div>
+      <div class="plan rv" data-plan="semana">
+        <h3>Semana</h3>
+        <div class="price">R$ 19<small>,90</small></div>
+        <div class="per">sai a R$ 2,84 por dia</div>
+        <ul><li>Uso ilimitado por 7 dias</li><li>Pix ou cartão</li><li>Liberado na hora</li></ul>
+        <a class="btn btn-ghost dl" href="#">Começar</a>
+      </div>
+    </div>
+    <p class="fine rv">Os passes são comprados dentro do app, pelo Mercado Pago. <b>O uso da OpenAI é cobrado à parte, na sua chave</b>, e costuma custar poucos reais por hora de reunião.</p>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Demonstração</span>
+      <h2>Veja em 60 segundos</h2>
+      <p class="sub">Uma reunião real, do clique em Iniciar até a primeira sugestão.</p>
+    </div>
+    <!-- VIDEO: troque o data-youtube pelo ID do seu vídeo no YouTube (o que vem depois de "v=" no link) -->
+    <div class="video rv" id="videoBox" data-youtube="">
+      <div class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="#0b0d13"><path d="M8 5v14l11-7z"/></svg></div>
+      <p>Vídeo em breve</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details class="rv"><summary>Preciso de uma chave da OpenAI?</summary><p>Sim. O Meeting Copilot usa a sua própria chave, então você paga a OpenAI direto pelo que usar, sem intermediário. Para criar uma, acesse <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a>, adicione créditos (a partir de US$ 5) e cole a chave nas configurações do app.</p></details>
+      <details class="rv"><summary>Quanto custa o uso da OpenAI?</summary><p>Depende do modelo e de quanto tempo você usa. Com as opções padrão (transcrição em tempo real e gpt-4o-mini), uma hora de reunião costuma ficar em poucos reais. O app mostra o custo estimado da sessão enquanto você usa.</p></details>
+      <details class="rv"><summary>Minhas conversas ficam guardadas em algum lugar?</summary><p>Não com a gente. O áudio vai do seu computador direto para a OpenAI, para transcrição e sugestões, e não passa por nenhum servidor nosso. A sessão só é salva no seu computador se você clicar em salvar.</p></details>
+      <details class="rv"><summary>Funciona no Mac ou no celular?</summary><p>Por enquanto, só no Windows 10 e 11. Mac está nos planos.</p></details>
+      <details class="rv"><summary>Como compro e libero um passe?</summary><p>Quando os 10 minutos grátis do dia acabam, o app mostra os passes. Digite seu e-mail, escolha o passe e pague por Pix ou cartão no Mercado Pago. Você não precisa ter conta no Mercado Pago. Assim que o pagamento é aprovado, o app libera sozinho.</p></details>
+      <details class="rv"><summary>O passe renova automaticamente?</summary><p>Não. Cada passe é uma compra única. Acabou o tempo, você volta para o grátis e compra outro só se quiser.</p></details>
+      <details class="rv"><summary>Posso usar em qualquer reunião?</summary><p>Pode. O app capta o áudio do computador, então funciona com qualquer programa: Teams, Zoom, Meet, Slack, Discord e outros. Use com responsabilidade: respeite as regras da sua empresa e as leis sobre registro de conversas e, quando for o caso, avise os participantes.</p></details>
+      <details class="rv"><summary>O Windows mostrou "O Windows protegeu o computador". É seguro?</summary><p>Esse aviso aparece para programas novos que ainda não têm assinatura digital paga. Clique em <b>Mais informações → Executar assim mesmo</b>. O instalador é distribuído apenas pelo GitHub oficial do projeto.</p></details>
+      <details class="rv"><summary>Tive um problema com o pagamento. Com quem falo?</summary><p>Mande um e-mail para <a href="mailto:israelribeiro313@gmail.com">israelribeiro313@gmail.com</a> com o e-mail usado na compra que eu resolvo.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="final rv">
+      <span class="eyebrow">Comece agora</span>
+      <h2>Sua próxima reunião pode ser a mais tranquila da semana.</h2>
+      <p class="sub" style="margin:0 auto 28px">Baixe grátis e teste 10 minutos por dia, sem cadastro.</p>
+      <a class="btn btn-primary dl" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z"/></svg>Baixar para Windows</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr"></span> Meeting Copilot · feito por <a href="/">Israel Junqueira</a></span>
+    <span><a href="https://github.com/Israel-Junqueira/meeting-copilot-download/releases" target="_blank" rel="noopener">Versões</a> · <a href="mailto:israelribeiro313@gmail.com">Suporte</a></span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const DOWNLOAD = 'https://github.com/Israel-Junqueira/meeting-copilot-download/releases/latest/download/MeetingCopilot-Setup.exe';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  $$('.dl').forEach((a) => { a.href = DOWNLOAD; a.setAttribute('rel', 'noopener'); });
+  $('#yr').textContent = new Date().getFullYear();
+
+  // nav
+  const nav = $('#nav'); const onScroll = () => nav.classList.toggle('scrolled', scrollY > 8);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const menu = $('#menu'), links = $('#links');
+  menu.onclick = () => { const o = links.classList.toggle('open'); menu.setAttribute('aria-expanded', o); };
+  $$('#links a').forEach((a) => a.onclick = () => { links.classList.remove('open'); menu.setAttribute('aria-expanded', false); });
+
+  // brilho que segue o mouse
+  const spot = $('#spot');
+  addEventListener('pointermove', (e) => { spot.style.left = e.clientX + 'px'; spot.style.top = e.clientY + 'px'; }, { passive: true });
+  $$('.cell').forEach((c) => c.addEventListener('pointermove', (e) => {
+    const r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  // reveal
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: .12 });
+  $$('.rv').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el); });
+
+  // onda de audio
+  const wave = $('#wave');
+  for (let i = 0; i < 48; i++) { const b = document.createElement('i'); b.style.animationDelay = (-Math.random() * 1.2).toFixed(2) + 's'; b.style.animationDuration = (0.8 + Math.random() * 0.9).toFixed(2) + 's'; wave.appendChild(b); }
+
+  // demo do app (roteiros em loop)
+  const scripts = [
+    { ctx: 'proposta-acme.md', lines: [
+      ['them', 'Gostei da proposta, mas o prazo de implantação me preocupa.'],
+      ['me', 'Entendo. Qual seria o prazo ideal para vocês?'],
+      ['them', 'Precisamos de algo rodando antes do fim do mês. É possível?'],
+    ], sug: 'Sim. A implantação padrão leva <b>3 semanas</b>, e a primeira entrega sai em <b>7 dias</b>. Se fecharmos até sexta, vocês já usam antes do fim do mês.' },
+    { ctx: 'vaga-dev-senior.md', lines: [
+      ['them', 'Me conta de um projeto em que você teve que melhorar a performance.'],
+      ['me', 'Claro, deixa eu pensar no melhor exemplo...'],
+    ], sug: 'Fale da <b>integração com o Oracle</b>: as consultas caíram de <b>40s para 3s</b> com índices e paginação, e o processo noturno passou a terminar <b>2h antes</b>.' },
+    { ctx: 'suporte-plano-pro.md', lines: [
+      ['them', 'Vocês têm algum desconto para pagamento anual?'],
+      ['me', 'Temos sim, vou te passar os detalhes.'],
+    ], sug: 'No anual o Plano Pro sai com <b>2 meses grátis</b> (R$ 990 em vez de R$ 1.188), e dá para pagar em até <b>12x</b> sem juros.' },
+  ];
+  const tr = $('#tr'), sug = $('#sug'), dots = $('#dots'), chip = $('#ctxchip');
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const label = { them: 'ELES', me: 'EU' };
+  async function typeLine(kind, text) {
+    const ln = document.createElement('div'); ln.className = 'ln';
+    ln.innerHTML = `<span class="who ${kind}">${label[kind]}</span><span class="tx"></span>`;
+    tr.appendChild(ln); while (tr.children.length > 5) tr.firstChild.remove();
+    const tx = ln.querySelector('.tx'); const caret = document.createElement('span'); caret.className = 'caret';
+    const words = text.split(' ');
+    for (let i = 0; i < words.length; i++) { tx.textContent = words.slice(0, i + 1).join(' '); tx.appendChild(caret); await wait(reduce ? 0 : 90 + Math.random() * 90); }
+    caret.remove();
+  }
+  async function typeSug(html) {
+    dots.style.display = 'inline-flex'; sug.innerHTML = ''; await wait(reduce ? 0 : 700); dots.style.display = 'none';
+    const tmp = document.createElement('div'); tmp.innerHTML = html; const plain = tmp.innerHTML;
+    // digita respeitando as tags <b>
+    let out = '', i = 0;
+    while (i < plain.length) {
+      if (plain[i] === '<') { const j = plain.indexOf('>', i); out += plain.slice(i, j + 1); i = j + 1; continue; }
+      out += plain[i++]; sug.innerHTML = out + '<span class="caret"></span>';
+      if (!reduce) await wait(14);
+    }
+    sug.innerHTML = out;
+  }
+  let t0 = Date.now(); const clock = $('#clock');
+  setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); clock.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }, 1000);
+  (async function loop() {
+    let k = 0;
+    for (;;) {
+      const sc = scripts[k++ % scripts.length]; chip.textContent = 'contexto: ' + sc.ctx;
+      tr.innerHTML = ''; sug.innerHTML = ''; dots.style.display = 'inline-flex';
+      for (const [kind, text] of sc.lines) { await typeLine(kind, text); await wait(500); }
+      await typeSug(sc.sug); await wait(4200);
+    }
+  })();
+
+  // modo invisivel
+  const screen = $('#screen');
+  $$('.switch button').forEach((b) => b.onclick = () => {
+    $$('.switch button').forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
+    screen.classList.toggle('them', b.dataset.view === 'them');
+  });
+  let auto = setInterval(() => { const off = $('.switch button:not(.on)'); off && off.click(); }, 3200);
+  $('.switch').addEventListener('pointerdown', () => clearInterval(auto), { once: true });
+
+  // calculadora de passe
+  const hrs = $('#hrs'), hrsOut = $('#hrsOut'), recOut = $('#recOut');
+  function recommend() {
+    const h = +hrs.value; hrsOut.textContent = h + ' h';
+    $$('.plan').forEach((p) => p.classList.remove('hl'));
+    let plan, msg;
+    if (h === 0) { plan = 'free'; msg = 'Para testar, o <b>grátis</b> resolve: 10 minutos todo dia.'; }
+    else if (h <= 3) { plan = 'hora'; msg = `Com ${h}h por semana, compre o passe de <b>3 horas</b> só no dia da reunião importante. Até R$ 5,90 na semana.`; }
+    else if (h <= 6) { plan = 'dia'; msg = `Com ${h}h por semana, o <b>Dia inteiro</b> cobre o seu dia mais cheio por R$ 9,90.`; }
+    else { plan = 'semana'; const por = (19.9 / h).toFixed(2).replace('.', ','); msg = `Com ${h}h por semana, a <b>Semana</b> compensa: R$ 19,90 sai a <b>R$ ${por} por hora</b> de reunião.`; }
+    $(`.plan[data-plan="${plan}"]`).classList.add('hl'); recOut.innerHTML = msg;
+  }
+  hrs.oninput = recommend; recommend();
+
+  // video: se tiver ID do YouTube, troca o placeholder pelo player ao clicar
+  const vb = $('#videoBox');
+  if (vb.dataset.youtube) {
+    vb.querySelector('p').textContent = 'Clique para assistir'; vb.style.cursor = 'pointer';
+    vb.onclick = () => { vb.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${vb.dataset.youtube}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Demonstração do Meeting Copilot"></iframe>`; };
+  }
+})();
+</script>
+</body>
+</html>
