@@ -4,9 +4,9 @@ import { ArrowUpRight, BookOpen, Sparkles } from "lucide-react"
 // Use <a> e nao <Link>: sao paginas HTML estaticas, fora das rotas do Next.
 const sites = [
   {
-    href: "/meeting-copilot/",
+    href: "https://nexlabs.com.br/copilot",
     icon: Sparkles,
-    tag: "Produto · Windows",
+    tag: "Produto NexLabs · Windows",
     title: "Meeting Copilot",
     description:
       "Copiloto de reunião que transcreve a conversa ao vivo e sugere a próxima fala com base no seu contexto. Invisível no compartilhamento de tela.",
