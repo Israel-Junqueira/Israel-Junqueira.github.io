@@ -223,6 +223,61 @@ export const awsTopics: AwsTopic[] = [
     related: ["cloudformation", "codepipeline"],
     status: "studied",
   },
+  {
+    id: "dms",
+    title: "AWS DMS",
+    eyebrow: "Database · Migração",
+    domain: "databases",
+    summary: "Serviço gerenciado para migrar bancos de dados entre ambientes ou engines, com carga inicial e replicação contínua.",
+    solves: ["Migrar bancos para a AWS", "Reduzir downtime", "Replicar mudanças durante a migração"],
+    keywords: ["Database Migration", "CDC", "cutover", "homogeneous", "heterogeneous"],
+    related: ["rds", "aurora", "glue"],
+    status: "studied",
+  },
+  {
+    id: "emr",
+    title: "Amazon EMR",
+    eyebrow: "Analytics · Big Data",
+    domain: "analytics",
+    summary: "Serviço gerenciado para criar clusters de processamento distribuído usando frameworks como Hadoop e Spark.",
+    solves: ["Processar grandes volumes de dados", "Executar jobs distribuídos", "Evitar administrar manualmente um cluster Hadoop"],
+    keywords: ["Hadoop", "Spark", "Big Data", "cluster", "processamento distribuído"],
+    related: ["glue", "s3", "redshift"],
+    status: "studied",
+  },
+  {
+    id: "neptune",
+    title: "Amazon Neptune",
+    eyebrow: "Database · Graph",
+    domain: "databases",
+    summary: "Banco de dados gráfico gerenciado para representar relações entre pessoas, objetos e eventos.",
+    solves: ["Consultar relacionamentos complexos", "Modelar redes e conexões", "Evitar joins difíceis em dados altamente conectados"],
+    keywords: ["Graph database", "grafos", "Gremlin", "SPARQL", "relacionamentos"],
+    related: ["rds", "dynamodb"],
+    status: "studied",
+  },
+  {
+    id: "timestream",
+    title: "Amazon Timestream",
+    eyebrow: "Database · Time series",
+    domain: "databases",
+    summary: "Banco de séries temporais otimizado para coletar, armazenar e consultar medições ao longo do tempo.",
+    solves: ["Armazenar métricas e eventos temporais", "Consultar dados de IoT", "Reduzir a complexidade de retenção histórica"],
+    keywords: ["Time series", "IoT", "métricas", "telemetria", "timestamp"],
+    related: ["dynamodb", "quicksight"],
+    status: "studied",
+  },
+  {
+    id: "managed-blockchain",
+    title: "Amazon Managed Blockchain",
+    eyebrow: "Especializado · Blockchain",
+    domain: "deployment",
+    summary: "Serviço gerenciado para criar e participar de redes blockchain usando tecnologias como Hyperledger Fabric e Ethereum.",
+    solves: ["Operar uma rede blockchain", "Coordenar participantes da rede", "Evitar administrar nós manualmente"],
+    keywords: ["Blockchain", "Hyperledger Fabric", "Ethereum", "rede distribuída"],
+    related: ["cloudformation", "dynamodb"],
+    status: "studied",
+  },
 ]
 
 export const awsEdges = [
@@ -231,6 +286,8 @@ export const awsEdges = [
   ["glue", "redshift"], ["glue", "quicksight"], ["cloudformation", "cdk"],
   ["cloudformation", "elastic-beanstalk"], ["codecommit", "codebuild"], ["codebuild", "codepipeline"],
   ["codepipeline", "codedeploy"], ["codebuild", "codeartifact"],
+  ["dms", "aurora"], ["emr", "glue"], ["emr", "redshift"], ["neptune", "dynamodb"],
+  ["timestream", "quicksight"], ["managed-blockchain", "cloudformation"],
 ] as const
 
 export type AwsConnection = {
@@ -259,6 +316,12 @@ export const awsConnections: AwsConnection[] = [
   { from: "codebuild", to: "codepipeline", title: "CodeBuild dentro do CodePipeline", how: "O CodePipeline orquestra as etapas; o CodeBuild executa a etapa de compilação e testes.", example: "Pipeline detecta commit, chama CodeBuild, publica artefato e libera a próxima etapa.", useCases: ["CI/CD", "pipeline", "automação", "artefatos"] },
   { from: "codepipeline", to: "codedeploy", title: "CodePipeline + CodeDeploy: entregar a versão", how: "Depois do build e dos testes, o CodePipeline aciona o CodeDeploy para instalar a versão nos destinos configurados.", example: "Implantar a versão 2.0 em várias instâncias EC2 usando estratégia de deployment.", useCases: ["CD", "EC2", "produção", "rollback"] },
   { from: "codebuild", to: "codeartifact", title: "CodeBuild + CodeArtifact: dependências privadas", how: "O build baixa pacotes internos do CodeArtifact e pode publicar novos artefatos para outros projetos.", example: "Uma biblioteca npm privada é consumida por cinco aplicações durante o build.", useCases: ["npm", "NuGet", "dependências", "bibliotecas internas"] },
+  { from: "dms", to: "aurora", title: "DMS + Aurora: migrar para um banco cloud-native", how: "O DMS carrega os dados para Aurora e replica alterações até que a aplicação possa fazer o cutover com segurança.", example: "Migrar um MySQL on-premises para Aurora MySQL sem parar a aplicação durante toda a carga inicial.", useCases: ["migração", "CDC", "cutover", "Aurora"] },
+  { from: "emr", to: "glue", title: "EMR + Glue: processamento e catálogo de Big Data", how: "O Glue cataloga e prepara metadados; o EMR executa processamento distribuído com Hadoop ou Spark sobre grandes volumes.", example: "Catalogar arquivos de logs no S3 com Glue e processá-los em um job Spark no EMR.", useCases: ["Hadoop", "Spark", "Big Data", "data lake"] },
+  { from: "emr", to: "redshift", title: "EMR + Redshift: preparar dados para analytics", how: "O EMR executa transformações distribuídas e o Redshift armazena os dados estruturados para consultas OLAP.", example: "Processar bilhões de eventos no EMR e carregar agregações de vendas no Redshift.", useCases: ["processamento distribuído", "OLAP", "warehouse", "agregações"] },
+  { from: "neptune", to: "dynamodb", title: "Neptune e DynamoDB: escolher pelo tipo de acesso", how: "Neptune é indicado para percorrer relações; DynamoDB para acesso rápido por chave-valor ou documento.", example: "Usar Neptune para recomendações baseadas em relacionamentos e DynamoDB para o perfil do usuário.", useCases: ["grafos", "relacionamentos", "NoSQL", "baixa latência"] },
+  { from: "timestream", to: "quicksight", title: "Timestream + QuickSight: visualizar séries temporais", how: "O Timestream armazena métricas ao longo do tempo e o QuickSight transforma esses dados em gráficos e dashboards.", example: "Dashboard de temperatura e consumo de máquinas IoT por hora.", useCases: ["IoT", "telemetria", "métricas", "dashboards"] },
+  { from: "managed-blockchain", to: "cloudformation", title: "Managed Blockchain + CloudFormation: infraestrutura repetível", how: "O CloudFormation pode participar do provisionamento padronizado dos recursos relacionados à rede blockchain.", example: "Reproduzir uma configuração de rede para ambientes de teste e produção.", useCases: ["Hyperledger Fabric", "Ethereum", "IaC", "rede distribuída"] },
 ]
 
 export type AwsGlossaryTerm = {
@@ -290,6 +353,11 @@ export const awsGlossary: AwsGlossaryTerm[] = [
   { term: "CI/CD", short: "Continuous Integration / Continuous Delivery", definition: "Práticas de integrar mudanças frequentemente, testar automaticamente e entregar versões com segurança.", whyItMatters: "Relaciona CodeCommit, CodeBuild, CodePipeline e CodeDeploy em uma cadeia de entrega.", example: "Cada push executa testes e publica uma versão aprovada.", related: ["CodeBuild", "CodePipeline", "CodeDeploy"] },
   { term: "schema", short: "Estrutura dos dados", definition: "Descrição dos campos, tipos e organização esperada de um conjunto de dados.", whyItMatters: "Glue Crawlers descobrem schemas e o Data Catalog registra metadados para Athena e outros consumidores.", example: "O crawler identifica que a coluna amount é numérica em arquivos Parquet.", related: ["Glue", "Data Catalog", "Crawler"] },
   { term: "Reader", short: "Instância de leitura", definition: "Nó ou endpoint usado para distribuir consultas de leitura sem receber as escritas principais.", whyItMatters: "Réplicas de leitura ajudam a escalar consultas e preservar o writer para transações.", example: "A aplicação envia SELECTs ao reader endpoint do Aurora.", related: ["Aurora", "Read Replica", "OLTP"] },
+  { term: "Hadoop", short: "Framework de Big Data", definition: "Conjunto de tecnologias para armazenar e processar grandes volumes de dados de forma distribuída.", whyItMatters: "Quando a questão cita cluster Hadoop gerenciado, pense em Amazon EMR.", example: "Executar um job MapReduce sobre arquivos de logs distribuídos em vários nós.", related: ["EMR", "Big Data", "cluster"] },
+  { term: "Time series", short: "Série temporal", definition: "Dados registrados com uma dimensão de tempo, como métricas, eventos, sensores e telemetria.", whyItMatters: "É a pista principal para escolher Amazon Timestream.", example: "Temperatura de um sensor registrada a cada minuto.", related: ["Timestream", "IoT", "telemetria"] },
+  { term: "Graph database", short: "Banco de dados gráfico", definition: "Banco que representa entidades como nós e seus relacionamentos como arestas.", whyItMatters: "É a pista para Neptune quando a consulta depende de conexões e caminhos entre entidades.", example: "Encontrar amigos de segundo grau em uma rede social.", related: ["Neptune", "grafos", "relacionamentos"] },
+  { term: "Blockchain", short: "Livro-razão distribuído", definition: "Tecnologia de registro compartilhado em que participantes validam e mantêm uma sequência de transações.", whyItMatters: "Managed Blockchain oferece redes gerenciadas com Hyperledger Fabric e Ethereum.", example: "Vários parceiros registram eventos de uma cadeia de suprimentos em uma rede comum.", related: ["Managed Blockchain", "Hyperledger Fabric", "Ethereum"] },
+  { term: "Big Data", short: "Dados em grande escala", definition: "Dados cujo volume, velocidade ou variedade exige processamento distribuído e arquiteturas especializadas.", whyItMatters: "Ajuda a identificar EMR quando a questão fala em Hadoop, Spark ou grandes volumes.", example: "Processar bilhões de eventos de aplicação em um cluster Spark.", related: ["EMR", "Hadoop", "Spark"] },
 ]
 
 
