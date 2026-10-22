@@ -1,4 +1,4 @@
-import { ArrowUpRight, BookOpen, Sparkles } from "lucide-react"
+import { ArrowUpRight, BookOpen, CloudCog, Sparkles } from "lucide-react"
 
 // Atalhos para os sites hospedados aqui mesmo (pasta public/)
 // Use <a> e nao <Link>: sao paginas HTML estaticas, fora das rotas do Next.
@@ -24,6 +24,17 @@ const sites = [
     cta: "Abrir o DevLearning",
     accent: "from-violet-500/20 to-sky-500/10",
     ring: "hover:ring-violet-400/50",
+  },
+  {
+    href: "/aws-certification/",
+    icon: CloudCog,
+    tag: "Study workspace · AWS",
+    title: "AWS Certification",
+    description:
+      "Trilha de estudos organizada por domínios, com busca, resumos, palavras-chave da prova e um mapa visual das relações entre serviços.",
+    cta: "Abrir a trilha AWS",
+    accent: "from-cyan-500/20 to-amber-500/10",
+    ring: "hover:ring-cyan-400/50",
   },
 ]
 
